@@ -1,16 +1,21 @@
 @charset "UTF-8";
 
 body header .header{
-    background: rgb(21, 22, 22);
+    height: 10vh;
+    background: rgba(66, 70, 70, 0.834);
     color: rgb(255, 255, 255);
 }
 
 
 .sidebar{
-    background: rgb(21, 22, 22);
+    background: rgba(53, 54, 54, 0.882);
     color: rgb(255, 255, 255);
 }
 
 .bottum-area{
     height: 80vh;
+}
+
+.logo{
+    display: inline;
 }
