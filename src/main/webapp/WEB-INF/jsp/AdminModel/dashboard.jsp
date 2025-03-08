@@ -32,7 +32,7 @@
 
               <div class="col-2">
                 <div class="row">
-                  <div class="col-6 mt-2">
+                  <div class="col-6 mt-4">
 
                     <i class="fa-solid fa-bell"></i>
 
