@@ -18,11 +18,23 @@
     <body>
 
 
-        <header>
+        <header class="headerTop">
 
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">.</a>
+                    <a class="navbar-brand" href="#">
+                        <!-- <div class="row">
+                            <span class="col logo">e</span>
+                            <span class="col logo">-</span>
+                            <span class="col logo">G</span>
+                            <span class="col logo">r</span>
+                            <span class="col logo">o</span>
+                            <span class="col logo">c</span>
+                            <span class="col logo">e</span>
+                            <span class="col logo">r</span>
+                            <span class="col logo">y</span>
+                        </div> -->
+                    </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -52,7 +64,7 @@
                     <div class=" justify-content-end">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="ms-2 nav-link active" aria-current="page" href="#">Login</a>
+                                <a class="ms-2 nav-link active" aria-current="page" href="dashboard">Login</a>
                             </li>
 
 
@@ -190,12 +202,35 @@
                         <div class="row">
                             <div class="col-12">
 
-                                <div class="mt-5 row">
+                                <div class="mt-5 row justify-content-evenly">
 
                                     <div class="col-2 shopCard">
                                         <div class="p-3">
                                             <div class="d-flex justify-content-center shopImg">
-                                                <img src="resources\UserModel\img\Products\Bakery&Bread\Naan.png" alt="">
+                                                <img src="resources\UserModel\img\Products\Bakery&Bread\Naan.png"
+                                                    alt="">
+                                            </div>
+                                            <div class=" shopTital">
+                                                <p>Naan</p>
+                                            </div>
+                                            <div class=" shopDiscription">
+                                                <p>discription</p>
+                                            </div>
+                                            <div class=" shopBtn">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <p>Price : 50 &#8377</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-2 shopCard">
+                                        <div class="p-3">
+                                            <div class="d-flex justify-content-center shopImg">
+                                                <img src="resources\UserModel\img\Products\Bakery&Bread\Naan.png"
+                                                    alt="">
                                             </div>
                                             <div class=" shopTital">
                                                 <p>Naan</p>
@@ -206,7 +241,43 @@
                                             <div class=" shopBtn">
                                                 <button class="ShopCardBuyNow">Buy</button>
                                                 <button class="ShopCardBuyNow">Add To Card</button>
-                                            </div>    
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 shopCard">
+                                        <div class="p-3">
+                                            <div class="d-flex justify-content-center shopImg">
+                                                <img src="resources\UserModel\img\Products\Bakery&Bread\Naan.png"
+                                                    alt="">
+                                            </div>
+                                            <div class=" shopTital">
+                                                <p>Naan</p>
+                                            </div>
+                                            <div class=" shopDiscription">
+                                                <p>discription</p>
+                                            </div>
+                                            <div class=" shopBtn">
+                                                <button class="ShopCardBuyNow">Buy</button>
+                                                <button class="ShopCardBuyNow">Add To Card</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-2 shopCard">
+                                        <div class="p-3">
+                                            <div class="d-flex justify-content-center shopImg">
+                                                <img src="resources\UserModel\img\Products\Bakery&Bread\Naan.png"
+                                                    alt="">
+                                            </div>
+                                            <div class=" shopTital">
+                                                <p>Naan</p>
+                                            </div>
+                                            <div class=" shopDiscription">
+                                                <p>discription</p>
+                                            </div>
+                                            <div class=" shopBtn">
+                                                <button class="ShopCardBuyNow">Buy</button>
+                                                <button class="ShopCardBuyNow">Add To Card</button>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -216,6 +287,38 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="mt-5 p-5">
+            <div class="footer">
+                <footer>
+                    <div class="row">
+                        <div class="col-3 d-flex align-items-center ">
+                            <h2 class="ms-5">e-Grocery</h2>
+                        </div>
+                        <div class="col-3">
+                            <div class="disabled">ABOUT</div>
+                            <div class="mt-2">Shop</div>
+                            <div>Blog</div>
+                            <div>Contact</div>
+                            <div>About Us</div>
+                        </div>
+                        <div class="col-3">
+                            <div class="disabled">HELP</div>
+                            <div class="mt-2">Cancellation and Return</div>
+                            <div>Payments</div>
+                            <div>shipping</div>
+                            <div>FAQ</div>
+                        </div>
+                        <div class="col-3">
+                            <div class="disabled">CONSUMER POLICY</div>
+                            <div class="mt-2">Terms of Use</div>
+                            <div>Security</div>
+                            <div>Privecy</div>
+                        </div>
+                    </div>
+                </footer>
             </div>
         </div>
 

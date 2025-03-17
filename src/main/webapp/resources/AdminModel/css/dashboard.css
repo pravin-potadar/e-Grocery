@@ -19,3 +19,12 @@ body header .header{
 .logo{
     display: inline;
 }
+
+button{
+    background: none;
+    color: white;
+    padding: 5px 3px 10px 5px;
+    margin: 0px 0px 6px -9px;
+}
+
+
