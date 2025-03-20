@@ -25,7 +25,7 @@
 
   <body>
 
-    <header class="fixed-top">
+    <!-- <header class="fixed-top">
       <nav>
         <div class="top-area">
           <div class="col-12 header">
@@ -79,9 +79,9 @@
                         <i class="ms-3">Category</i>
                       </button>
                       <div id="CategorySubPart" class="row ms-3 subList">
-                        <a href="category-add" class="col-12 mt-2"><i class="fa-solid fa-plus"></i><i class="ms-3">Add</i></a>
-                        <a href="category-update" class="col-12"><i class="fa-solid fa-pen-to-square"></i><i class="ms-3">update</i></a>
-                        <a href="category-list" class="col-12"><i class="fa-solid fa-table-list"></i><i class="ms-3">List</i></a>
+                        <a href="category/add" class="col-12 mt-2"><i class="fa-solid fa-plus"></i><i class="ms-3">Add</i></a>
+                        <a class="col-12"><i class="fa-solid fa-pen-to-square"></i><i class="ms-3">update</i></a>
+                        <a class="col-12"><i class="fa-solid fa-table-list"></i><i class="ms-3">List</i></a>
                       </div>
                     </div>
                   </div>
@@ -181,22 +181,7 @@
                             </div>
                           </div>
 
-                          <!-- <div class="col-2">
-                            <div class="row">
-                              <div class="col-12 headerCard">
-                                <h5>Total Sales</h5>
-                              </div>
-                              <hr width="80%">
-                              <div class="col-12 mainCard ">
-                                <span>10 00 000 </span> <s class="fa-solid fa-indian-rupee-sign"></s>
-                              </div>
-                              <hr width="80%">
-                              <div class="footerCard ">
-                                <span class="fa-solid fa-arrow-up"></span>
-                                <span class="fa-solid fa-arrow-down"></span>
-                              </div>
-                            </div>
-                          </div> -->
+                        
 
                           <div class="col-2">
                             <div class="row">
@@ -278,7 +263,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
   </body>
 
