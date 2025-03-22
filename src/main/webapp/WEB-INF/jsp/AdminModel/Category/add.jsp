@@ -168,16 +168,16 @@
                             <div class="container-fluid">
                                 <div class="col-12 mt-5">
                                     <h1>Add Category</h1>
-                                    <form action="add-category" method="POST" enctype="multipart/form-data"
+                                    <form action="addCategory" method="get" enctype="multipart/form-data"
                                         class="mt-4">
                                         <div class="mb-3">
                                             <label for="name" class="form-label">Category Name</label>
-                                            <input type="text" id="name" name="name" class="form-control" required>
+                                            <input type="text" id="name" name="categoryName" class="form-control" required>
                                         </div>
 
                                         <div class="mb-3">
                                             <label for="image" class="form-label">Upload Image</label>
-                                            <input type="file" id="image" name="image" class="form-control"
+                                            <input type="file" id="image" name="categoryImage" class="form-control"
                                                 accept="image/*" required>
                                         </div>
 

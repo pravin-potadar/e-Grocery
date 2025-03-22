@@ -92,9 +92,9 @@
                         <i class="ms-3">Product</i>
                       </button>
                       <div id="productSubPart" class="row ms-3 subList">
-                        <a class="col-12 mt-2"><i class="fa-solid fa-plus"></i><i class="ms-3">Add</i></a>
-                        <a class="col-12"><i class="fa-solid fa-pen-to-square"></i><i class="ms-3">update</i></a>
-                        <a class="col-12"><i class="fa-solid fa-table-list"></i><i class="ms-3">List</i></a>
+                        <a href="product-add" class="col-12 mt-2"><i class="fa-solid fa-plus"></i><i class="ms-3">Add</i></a>
+                        <a href="product-update" class="col-12"><i class="fa-solid fa-pen-to-square"></i><i class="ms-3">update</i></a>
+                        <a href="product-list" class="col-12"><i class="fa-solid fa-table-list"></i><i class="ms-3">List</i></a>
                       </div>
                     </div>
                   </div>
