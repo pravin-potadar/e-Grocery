@@ -1,18 +1,23 @@
 package com.nt.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
-import com.nt.entity.CategoryData;
+import com.nt.service.CategoryService;
 
 
 
 @Controller
 public class Category {
+	
+	
+	@Autowired
+	private CategoryService categoryService;
+	
 	
 	@GetMapping("category-add")
     public String addCategoryForm() {
@@ -37,13 +42,17 @@ public class Category {
 //	Add Category
 	
 	
-	@GetMapping("addCategory")
-	public String getMethodName(@ModelAttribute CategoryData category) {
-		System.out.println(category.getId());
-		System.out.println(category.getCategoryName());
-		System.out.println(category.getCategoryImage());
-		System.out.println(category.getCurrentDate());
-		return "";
+	
+	@PostMapping("addCategory")
+	public void getMethodName(@RequestParam String categoryName, @RequestParam MultipartFile categoryImage) {
+		
+		System.out.println(categoryName);
+		
+		System.out.println(categoryImage);
+		
+		boolean data = categoryService.addCategory(categoryName,categoryImage);
+		
+		System.out.println(data);
 	}
 	
 	

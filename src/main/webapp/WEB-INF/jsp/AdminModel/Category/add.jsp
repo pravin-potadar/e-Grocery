@@ -168,7 +168,7 @@
                             <div class="container-fluid">
                                 <div class="col-12 mt-5">
                                     <h1>Add Category</h1>
-                                    <form action="addCategory" method="get" enctype="multipart/form-data"
+                                    <form action="addCategory" method="post" enctype="multipart/form-data"
                                         class="mt-4">
                                         <div class="mb-3">
                                             <label for="name" class="form-label">Category Name</label>
