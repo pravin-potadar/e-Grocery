@@ -16,6 +16,8 @@ import org.springframework.web.multipart.MultipartFile;
 import com.nt.entity.Category;
 import com.nt.repository.CategoryRepository;
 
+import antlr.collections.List;
+
 @Service
 public class CategoryService {
 	
@@ -57,5 +59,13 @@ public class CategoryService {
         } catch (IOException e) {
             throw new RuntimeException("Error saving category image", e);
         }
+    }
+    
+    
+//    list of category 
+    
+    
+    public List getAllCategories() {
+        return (List) categoryRepository.findAll();
     }
 }
