@@ -1,7 +1,10 @@
 package com.nt.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -44,7 +47,7 @@ public class Category {
 	
 	
 	@PostMapping("addCategory")
-	public void getMethodName(@RequestParam String categoryName, @RequestParam MultipartFile categoryImage) {
+	public void addCategory(@RequestParam String categoryName, @RequestParam MultipartFile categoryImage) {
 		
 		System.out.println(categoryName);
 		
@@ -53,6 +56,17 @@ public class Category {
 		boolean data = categoryService.addCategory(categoryName,categoryImage);
 		
 		System.out.println(data);
+	}
+	
+	
+//	List of Category 
+	
+	@GetMapping("listCategory")
+	public String listCategories(Model model) {
+	    List<Category> categories = (List<Category>) categoryService.getAllCategories();
+	    
+	    model.addAttribute("categories", categories);
+	    return"AdminModel/Category/list";
 	}
 	
 	
