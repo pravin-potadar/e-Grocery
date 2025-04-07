@@ -24,7 +24,7 @@ public class CategoryService {
     @Autowired
     private CategoryRepository categoryRepository;
 
-    private static final String UPLOAD_DIR = "Q:\\SPRING\\Spring WebApplication\\e-Grocery\\src\\main\\webapp\\resources\\AdminModel\\img\\Category"; // Change path as needed
+    private static final String UPLOAD_DIR = "Q:\\SPRING\\Spring WebApplication\\e-Grocery\\src\\main\\webapp\\resources\\AdminModel\\img\\Category\\"; // Change path as needed
 
     public boolean addCategory(String categoryName, MultipartFile categoryImage) {
     	
@@ -49,7 +49,7 @@ public class CategoryService {
             // Create Category object with file path
             Category category = new Category(
                 categoryName,
-                filePath, // Save path in DB
+                fileName, // Save path in DB
                 LocalDate.now(),
                 LocalTime.now()
             );
@@ -65,7 +65,7 @@ public class CategoryService {
 //    list of category 
     
     
-    public List getAllCategories() {
-        return (List) categoryRepository.findAll();
+    public   java.util.List<Category> getAllCategories() {
+        return  categoryRepository.findAll();
     }
 }

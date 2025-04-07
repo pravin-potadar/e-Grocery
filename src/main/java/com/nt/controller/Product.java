@@ -25,5 +25,12 @@ public class Product {
 		return"AdminModel/Product/list";
 	}
 
+	
+//	add product 
+	
+	
+	public void productAdd() {
+		
+	}
 
 }

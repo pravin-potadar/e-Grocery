@@ -35,10 +35,11 @@ public class Category {
     }
 	
 	
-	@GetMapping("category-list")
-    public String listCategoryForm() {
-    	return"AdminModel/Category/list";
-    }
+//	@GetMapping("category-list")
+//    public String listCategoryForm() {
+//		
+//    	return"AdminModel/Category/list";
+//    }
 	
 	
 	
@@ -47,7 +48,7 @@ public class Category {
 	
 	
 	@PostMapping("addCategory")
-	public void addCategory(@RequestParam String categoryName, @RequestParam MultipartFile categoryImage) {
+	public String addCategory(@RequestParam String categoryName, @RequestParam MultipartFile categoryImage) {
 		
 		System.out.println(categoryName);
 		
@@ -56,6 +57,10 @@ public class Category {
 		boolean data = categoryService.addCategory(categoryName,categoryImage);
 		
 		System.out.println(data);
+		
+//		return "AdminModel/Category/list";
+		
+		return "redirect:listCategory";
 	}
 	
 	
@@ -63,7 +68,9 @@ public class Category {
 	
 	@GetMapping("listCategory")
 	public String listCategories(Model model) {
-	    List<Category> categories = (List<Category>) categoryService.getAllCategories();
+	    List<com.nt.entity.Category> categories =  categoryService.getAllCategories();
+	    
+	    System.out.println(categories);
 	    
 	    model.addAttribute("categories", categories);
 	    return"AdminModel/Category/list";

@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	
 <!doctype html>
 <html lang="en">
 
@@ -170,6 +173,7 @@
 											<th>Image</th>
 											<th>Date</th>
 											<th>Time</th>
+											<th>Action</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -178,10 +182,11 @@
 												<td>${category.id}</td>
 												<td>${category.name}</td>
 												<td><img
-													src="${category.imageUrl}"
+													src="resources/AdminModel/img/Category/${category.imageUrl}"
 													width="50" height="50"></td>
 												<td>${category.createdDate}</td>
 												<td>${category.createdTime}</td>
+												<td> <span>Edit</span> <span>Update</span> <span>Delete</span> </td>
 											</tr>
 										</c:forEach>
 									</tbody>
