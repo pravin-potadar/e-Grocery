@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <!doctype html>
+    
+    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    
     <html lang="en">
 
     <head>
@@ -185,28 +189,28 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <c:forEach var="product" items="${products}">
+                                                <c:forEach var="products" items="${products}">
                                                     <tr>
-                                                        <td>${product.id}</td>
-                                                        <td>${product.name}</td>
+                                                        <td>${products.id}</td>
+                                                        <td>${products.name}</td>
                                                         <td>
-                                                            <img src="resources/uploads/${product.image}"
+                                                            <img src="resources/AdminModel/img/Products/${products.imageUrl}"
                                                                 alt="Product Image" width="80" height="80">
                                                         </td>
-                                                        <td>₹ ${product.price}</td>
-                                                        <td>${product.discount} %</td>
+                                                        <td>₹ ${products.price}</td>
+                                                        <td>${products.discount} %</td>
                                                         <td>
                                                             <c:choose>
-                                                                <c:when test="${product.stock > 0}">
-                                                                    <span class="text-success">${product.stock}</span>
+                                                                <c:when test="${products.stock > 0}">
+                                                                    <span class="text-success">${products.stock}</span>
                                                                 </c:when>
                                                                 <c:otherwise>
                                                                     <span class="text-danger">Out of Stock</span>
                                                                 </c:otherwise>
                                                             </c:choose>
                                                         </td>
-                                                        <td>${product.category}</td>
-                                                        <td>${product.brand}</td>
+                                                        <td>${products.categoryId}</td>
+                                                        <td>${products.brand}</td>
                                                         <td>
                                                             <a href="edit-product/${product.id}"
                                                                 class="btn btn-warning btn-sm">Edit</a>
