@@ -77,6 +77,21 @@ public class Category {
 	}
 	
 	
+//	search Category  data
+	
+	@GetMapping("searchCategory")
+	public void findCategory(@RequestParam String categorySearchData) {
+		System.out.println("contrl " + categorySearchData);
+		
+		
+		categoryService.findCategory(categorySearchData);
+		
+
+	}
+	
+	
+	
+	
 
 
 }
