@@ -1,4 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+
 	<!doctype html>
 	<html lang="en">
 
@@ -169,17 +174,18 @@
 
 									</form>
 
-									<form action="add-category" method="POST" enctype="multipart/form-data"
+									<form action="updateCategory" method="POST" enctype="multipart/form-data"
 										class="mt-4">
 										<div class="mb-3">
-											<label for="name" class="form-label">Category Name</label> <input
-												type="text" id="name" name="name" class="form-control" required>
+											<label for="name" class="form-label">Category Name</label> 
+											<input type="text" id="name" name="name" class="form-control" value="${presentCategory.name}" required>
+
 										</div>
 
 										<div class="mb-3">
 											<label for="image" class="form-label">Upload Image</label> <input
 												type="file" id="image" name="image" class="form-control"
-												accept="image/*" required>
+												accept="image/*" value="${presentCategory.imageUrl}" >
 										</div>
 
 										<button type="submit" class="btn btn-success">Update

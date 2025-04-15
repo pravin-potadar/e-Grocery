@@ -7,6 +7,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,39 +71,70 @@ public class CategoryService {
     }
 
 
-	public void findCategory(String categorySearchData) {
-		System.out.println("Category service");
-		
-		boolean hasLetters = categorySearchData.matches(".*[a-zA-Z].*");
-        boolean hasNumbers = categorySearchData.matches(".*[0-9].*");
-        
-        if(hasLetters == true || hasNumbers == true) {
-        	
-        	if(hasLetters) {
-        		System.out.println(hasLetters + " first condition");
-        		
-        		java.util.List<Category> data = getAllCategories();
-        		
+//	public java.util.List<Category> findCategory(String categorySearchData) {
+//		System.out.println("Category service");
+//		
+//		boolean hasLetters = categorySearchData.matches(".*[a-zA-Z].*");
+//        boolean hasNumbers = categorySearchData.matches(".*[0-9].*");
+//        
+//        if(hasLetters == true || hasNumbers == true) {
+//        	
+//        	if(hasLetters) {
+//        		System.out.println(hasLetters + " first condition");
+//        		
+//        		java.util.List<Category> data = getAllCategories();
+//        		
+//        		
+//        		
 //        		System.out.println(data);
-        		
-        		for (Category currentData : data) {
-					if(currentData.getName().equals(categorySearchData)) {
-						System.out.println(currentData);
-					}
-				}
-        		
-        	}else if(hasNumbers) {
-        		
-        		System.out.println(hasNumbers + " second condition");
-        		
-        		int id = Integer.parseInt(categorySearchData);
-        		
-        		System.out.println(categoryRepository.findById(id));
-        		
-        	}
-        	
-        }
-        
+//        		
+//        		for (Category currentData : data) {
+//					if(currentData.getName().equals(categorySearchData)) {
+//						System.out.println(currentData.getName());
+//						
+//						return (java.util.List<Category>) currentData;
+//					}
+//				}
+//        		
+//        	}else if(hasNumbers) {
+//        		
+//        		System.out.println(hasNumbers + " second condition");
+//        		
+//        		int id = Integer.parseInt(categorySearchData);
+//        		
+////        		System.out.println(categoryRepository.findById(id));
+//        		
+//        		java.util.List<Category> categoryData = categoryRepository.findById(id);
+//        		
+//        		return categoryData;
+//        		
+//        	}
+//        	
+//        }
+//		return null;
+//        
+//		
+//	}
+    
+    
+    
+    public Category getCategoryFindById(int id) {
+    	Category categoryData = (Category) categoryRepository.findById(id);
+    	
+    	System.out.println("find using id" + categoryData.getName());
+    	
+    	return categoryData;
+
+	}
+
+
+	public void updateCategory(Category updateCategory) {
+		
+		categoryRepository.save(updateCategory);
 		
 	}
+    
+    
+    
+    
 }
