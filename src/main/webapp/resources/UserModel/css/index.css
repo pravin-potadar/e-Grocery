@@ -36,15 +36,188 @@ body {
 }
 
 .shopCard {
-    /* border: 2px solid black; */
-    background: #89808069;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    transition: transform 0.2s ease;
+    height: 100%;
 }
 
-.shopCard .shopImg img {
+.shopCard:hover {
+    transform: scale(1.05);
+}
 
-    height: 200px;
-    width: 90%;
-    border: 2px solid red inset;
+.shopImg img {
+    width: 100%;
+    max-height: 150px;
+    object-fit: contain;
+}
+
+.shopTital p, .shopDiscription p {
+    margin: 0;
+    text-align: center;
+}
+
+.shopTital p {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+.shopDiscription p {
+    color: #555;
+    font-size: 0.9rem;
+    padding: 0 5px;
+}
+
+.shopBtn p {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin: 10px 0 5px;
+}
+
+.ShopCardBuyNow {
+    background-color: #28a745;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    margin: 3px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 48%;
+}
+
+.ShopCardBuyNow:hover {
+    background-color: #218838;
+}
 
 
+.footer {
+    background-color: #f8f9fa;
+    padding: 40px 20px;
+    border-top: 1px solid #ddd;
+}
+
+.footer h2 {
+    font-size: 2rem;
+    color: #343a40;
+}
+
+.footer-heading {
+    font-weight: bold;
+    color: #343a40;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.footer-link {
+    font-size: 0.95rem;
+    color: #6c757d;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.footer-link:hover {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+/* Optional: responsive tweaks */
+@media (max-width: 768px) {
+    .footer .row {
+        flex-direction: column;
+    }
+
+    .footer .col-3 {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .footer h2 {
+        text-align: center;
+        margin-bottom: 15px;
+    }
+}
+
+
+
+
+/* General reset & improvements */
+body {
+    padding-top: 60px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #f8f9fa;
+    padding: 40px 0;
+    border-top: 1px solid #dee2e6;
+    color: #343a40;
+}
+
+.footer h2 {
+    font-weight: 700;
+    color: #198754;
+}
+
+.footer-heading {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #198754;
+    margin-bottom: 10px;
+}
+
+.footer-link {
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+    color: #495057;
+    cursor: pointer;
+}
+
+.footer-link:hover {
+    color: #198754;
+    text-decoration: underline;
+}
+
+/* Shop Card Buttons */
+.ShopCardBuyNow {
+    border: none;
+    background-color: #198754;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ShopCardBuyNow:hover {
+    background-color: #146c43;
+}
+
+/* Category Image Styling */
+.categoryProducts img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    padding: 8px;
+}
+
+.categoryHeader h2 {
+    color: #198754;
+    font-weight: bold;
+}
+
+/* Carousel captions */
+.carousel-caption h2 {
+    color: #198754;
+    font-weight: bold;
 }
