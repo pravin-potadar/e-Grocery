@@ -118,7 +118,7 @@
                             <div class="team-card shadow-lg mb-4">
                                 <img src="https://via.placeholder.com/200" alt="Team Member" class="img-fluid rounded-circle mx-auto mt-3">
                                 <div class="card-body text-center">
-                                    <h5 class="card-title">John Doe</h5>
+                                    <h5 class="card-title">Pravin Potadar</h5>
                                     <p class="card-text text-muted">CEO & Co-Founder</p>
                                     <p class="text-muted">John brings 10+ years of experience in the grocery and e-commerce sectors, leading our team with passion and vision.</p>
                                 </div>
@@ -129,7 +129,7 @@
                             <div class="team-card shadow-lg mb-4">
                                 <img src="https://via.placeholder.com/200" alt="Team Member" class="img-fluid rounded-circle mx-auto mt-3">
                                 <div class="card-body text-center">
-                                    <h5 class="card-title">Jane Smith</h5>
+                                    <h5 class="card-title">Tirth Swami</h5>
                                     <p class="card-text text-muted">CTO & Co-Founder</p>
                                     <p class="text-muted">With a strong background in technology, Jane is dedicated to developing cutting-edge solutions for e-Grocery's platform.</p>
                                 </div>
@@ -140,7 +140,7 @@
                             <div class="team-card shadow-lg mb-4">
                                 <img src="https://via.placeholder.com/200" alt="Team Member" class="img-fluid rounded-circle mx-auto mt-3">
                                 <div class="card-body text-center">
-                                    <h5 class="card-title">Alex Lee</h5>
+                                    <h5 class="card-title">Vaibhav Nikam</h5>
                                     <p class="card-text text-muted">Marketing Director</p>
                                     <p class="text-muted">Alex is passionate about connecting people with fresh groceries, ensuring our customers always get the best deals.</p>
                                 </div>
