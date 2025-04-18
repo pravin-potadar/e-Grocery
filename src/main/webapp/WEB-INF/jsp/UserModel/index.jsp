@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
     <!DOCTYPE html>
     <html>
 
@@ -46,17 +49,17 @@
                                 <a class="ms-4 nav-link active" aria-current="page" href="#">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="ms-4 nav-link active" aria-current="page" href="#">Shop</a>
+                                <a class="ms-4 nav-link active" aria-current="page" href="shop">Shop</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="ms-4 nav-link active" aria-current="page" href="#">Blog</a>
+                                <a class="ms-4 nav-link active" aria-current="page" href="blog">Blog</a>
                             </li>
                             <li class="nav-item">
-                                <a class="ms-4 nav-link active" aria-current="page" href="#">Contact</a>
+                                <a class="ms-4 nav-link active" aria-current="page" href="contact">Contact</a>
                             </li>
                             <li class="nav-item">
-                                <a class="ms-4 nav-link active" aria-current="page" href="#">About Us</a>
+                                <a class="ms-4 nav-link active" aria-current="page" href=aboutUs>About Us</a>
                             </li>
 
                         </ul>
@@ -134,60 +137,22 @@
                     <h2 class="text-center">categorys</h2>
                 </div>
                 <div class="col-12 row  justify-content-evenly">
-                    <div class="col">
+                    <!-- <div class="col">
                         <div class="categoryProducts d-flex justify-content-center mt-2">
                             <img class="p-2" src="resources\UserModel\img\categoryLogos\Bakery&Bread.png" alt="">
                         </div>
                         <p class="mt-2 text-center">Bakery & Bread</p>
-                    </div>
-                    <div class="col">
-                        <div class="categoryProducts d-flex justify-content-center mt-2">
-                            <img class="p-2" src="resources\UserModel\img\categoryLogos\Canned&JarredGoods.png" alt="">
+                    </div> -->
+
+                    <c:forEach var="categories" items="${categories}">
+                        <div class="col">
+                            <div class="categoryProducts d-flex justify-content-center mt-2">
+                                <img class="p-2" src="resources/AdminModel/img/Category/${categories.imageUrl}" alt="${categories.name}">
+                            </div>
+                            <p class="mt-2 text-center">${categories.name}</p>
                         </div>
-                        <p class="mt-2 text-center">Canned & Jarred Goods</p>
-                    </div>
-                    <div class="col">
-                        <div class="categoryProducts d-flex justify-content-center mt-2">
-                            <img class="p-2" src="resources\UserModel\img\categoryLogos\Dairy&Eggs.png" alt="">
-                        </div>
-                        <p class="mt-2 text-center">Dairy & Eggs</p>
-                    </div>
-                    <div class="col">
-                        <div class="categoryProducts d-flex justify-content-center mt-2">
-                            <img class="p-2" src="resources\UserModel\img\categoryLogos\FreshProduce.png" alt="">
-                        </div>
-                        <p class="mt-2 text-center">Fresh Produce</p>
-                    </div>
-                    <div class="col">
-                        <div class="categoryProducts d-flex justify-content-center mt-2">
-                            <img class="p-2" src="resources\UserModel\img\categoryLogos\FrozenFoods.png" alt="">
-                        </div>
-                        <p class="mt-2 text-center">Frozen Foods</p>
-                    </div>
-                    <div class="col">
-                        <div class="categoryProducts d-flex justify-content-center mt-2">
-                            <img class="p-2" src="resources\UserModel\img\categoryLogos\Grains&Pasta.png" alt="">
-                        </div>
-                        <p class="mt-2 text-center">Grains & Pasta</p>
-                    </div>
-                    <div class="col">
-                        <div class="categoryProducts d-flex justify-content-center mt-2">
-                            <img class="p-2" src="resources\UserModel\img\categoryLogos\HouseholdEssentials.png" alt="">
-                        </div>
-                        <p class="mt-2 text-center">House hold Essentials</p>
-                    </div>
-                    <div class="col">
-                        <div class="categoryProducts d-flex justify-content-center mt-2">
-                            <img class="p-2" src="resources\UserModel\img\categoryLogos\Snacks&Beverages.png" alt="">
-                        </div>
-                        <p class="mt-2 text-center">Snacks & Beverages</p>
-                    </div>
-                    <div class="col">
-                        <div class="categoryProducts d-flex justify-content-center mt-2">
-                            <img class="p-2" src="resources\UserModel\img\categoryLogos\Spices&Condiments.png" alt="">
-                        </div>
-                        <p class="mt-2 text-center">Spices & Condiments</p>
-                    </div>
+                    </c:forEach>
+
                 </div>
             </div>
 
@@ -207,80 +172,27 @@
                                     <div class="col-2 shopCard">
                                         <div class="p-3">
                                             <div class="d-flex justify-content-center shopImg">
-                                                <img src="resources\UserModel\img\Products\Bakery&Bread\Naan.png"
-                                                    alt="">
+                                                <img src="resources/UserModel/img/Products/Bakery&Bread/Naan.png" alt="Naan">
                                             </div>
-                                            <div class=" shopTital">
+                                            <div class="shopTital">
                                                 <p>Naan</p>
                                             </div>
-                                            <div class=" shopDiscription">
-                                                <p>discription</p>
+                                            <div class="shopDiscription">
+                                                <p>Description of the product goes here.</p>
                                             </div>
-                                            <div class=" shopBtn">
+                                            <div class="shopBtn mt-2">
                                                 <div class="row">
                                                     <div class="col-12">
-                                                        <p>Price : 50 &#8377</p>
+                                                        <p>Price: 50 &#8377;</p>
+                                                    </div>
+                                                    <div class="col-12 d-flex justify-content-between">
+                                                        <button class="ShopCardBuyNow">Buy</button>
+                                                        <button class="ShopCardBuyNow">Add to Cart</button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="col-2 shopCard">
-                                        <div class="p-3">
-                                            <div class="d-flex justify-content-center shopImg">
-                                                <img src="resources\UserModel\img\Products\Bakery&Bread\Naan.png"
-                                                    alt="">
-                                            </div>
-                                            <div class=" shopTital">
-                                                <p>Naan</p>
-                                            </div>
-                                            <div class=" shopDiscription">
-                                                <p>discription</p>
-                                            </div>
-                                            <div class=" shopBtn">
-                                                <button class="ShopCardBuyNow">Buy</button>
-                                                <button class="ShopCardBuyNow">Add To Card</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-2 shopCard">
-                                        <div class="p-3">
-                                            <div class="d-flex justify-content-center shopImg">
-                                                <img src="resources\UserModel\img\Products\Bakery&Bread\Naan.png"
-                                                    alt="">
-                                            </div>
-                                            <div class=" shopTital">
-                                                <p>Naan</p>
-                                            </div>
-                                            <div class=" shopDiscription">
-                                                <p>discription</p>
-                                            </div>
-                                            <div class=" shopBtn">
-                                                <button class="ShopCardBuyNow">Buy</button>
-                                                <button class="ShopCardBuyNow">Add To Card</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-2 shopCard">
-                                        <div class="p-3">
-                                            <div class="d-flex justify-content-center shopImg">
-                                                <img src="resources\UserModel\img\Products\Bakery&Bread\Naan.png"
-                                                    alt="">
-                                            </div>
-                                            <div class=" shopTital">
-                                                <p>Naan</p>
-                                            </div>
-                                            <div class=" shopDiscription">
-                                                <p>discription</p>
-                                            </div>
-                                            <div class=" shopBtn">
-                                                <button class="ShopCardBuyNow">Buy</button>
-                                                <button class="ShopCardBuyNow">Add To Card</button>
-                                            </div>
-                                        </div>
-                                    </div>
-
                                 </div>
 
                             </div>
@@ -290,35 +202,36 @@
             </div>
         </div>
 
-        <div class="mt-5 p-5">
+        <div class="mt-5">
             <div class="footer">
-                <footer>
-                    <div class="row">
-                        <div class="col-3 d-flex align-items-center ">
+                <footer class="footer">
+                    <div class="row mt-5 mb-5">
+                        <div class="col-3 d-flex align-items-center">
                             <h2 class="ms-5">e-Grocery</h2>
                         </div>
                         <div class="col-3">
-                            <div class="disabled">ABOUT</div>
-                            <div class="mt-2">Shop</div>
-                            <div>Blog</div>
-                            <div>Contact</div>
-                            <div>About Us</div>
+                            <div class="footer-heading">ABOUT</div>
+                            <div class="footer-link mt-2">Shop</div>
+                            <div class="footer-link">Blog</div>
+                            <div class="footer-link">Contact</div>
+                            <div class="footer-link">About Us</div>
                         </div>
                         <div class="col-3">
-                            <div class="disabled">HELP</div>
-                            <div class="mt-2">Cancellation and Return</div>
-                            <div>Payments</div>
-                            <div>shipping</div>
-                            <div>FAQ</div>
+                            <div class="footer-heading">HELP</div>
+                            <div class="footer-link mt-2">Cancellation and Return</div>
+                            <div class="footer-link">Payments</div>
+                            <div class="footer-link">Shipping</div>
+                            <div class="footer-link">FAQ</div>
                         </div>
                         <div class="col-3">
-                            <div class="disabled">CONSUMER POLICY</div>
-                            <div class="mt-2">Terms of Use</div>
-                            <div>Security</div>
-                            <div>Privecy</div>
+                            <div class="footer-heading">CONSUMER POLICY</div>
+                            <div class="footer-link mt-2">Terms of Use</div>
+                            <div class="footer-link">Security</div>
+                            <div class="footer-link">Privacy</div>
                         </div>
                     </div>
                 </footer>
+                
             </div>
         </div>
 

@@ -89,5 +89,20 @@ public class CategoryCntrl {
 		return "redirect:listCategory";
 		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
 
 }
