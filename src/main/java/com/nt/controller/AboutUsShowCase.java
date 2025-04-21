@@ -16,7 +16,7 @@ public class AboutUsShowCase {
 	@GetMapping("aboutUs")
 	public String aboutUs() {
 		
-		return "UserModel/aboutUs";
+		return "UserModel/about";
 		
 	}
 

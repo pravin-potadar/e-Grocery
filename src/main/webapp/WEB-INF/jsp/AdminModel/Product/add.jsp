@@ -1,4 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+
+
 	<!DOCTYPE html>
 	<html lang="en">
 
@@ -172,8 +176,8 @@
 											<div class="row">
 												<div class="col-md-6 mb-3">
 													<label for="productName" class="form-label">Product Name</label>
-													<input type="text" id="productName" name="name"
-														class="form-control" required />
+													<input type="text" id="productName" name="name" class="form-control"
+														required />
 												</div>
 
 												<div class="col-md-6 mb-3">
@@ -204,22 +208,30 @@
 
 												<div class="col-md-4 mb-3">
 													<label for="quantity" class="form-label">Quantity / Stock</label>
-													<input type="number" id="quantity" name="stock"
-														class="form-control" required />
+													<input type="number" id="quantity" name="stock" class="form-control"
+														required />
 												</div>
 											</div>
 
 											<div class="row">
 												<div class="col-md-6 mb-3">
-													<label for="category" class="form-label">Category</label>
-													<input type="text" id="category" name="categoryId"
-														class="form-control" required placeholder="enter num" />
+													<select class="form-select" id="category" name="categoryId" required>
+														<option value="" disabled selected>Select a category</option>
+														<c:forEach var="cat" items="${categories}">
+															<option value="${cat.id}">${cat.name}</option>
+														</c:forEach>
+													</select>
 												</div>
 
 												<div class="col-md-6 mb-3">
-													<label for="sku" class="form-label">Unit</label>
-													<input type="text" id="sku" name="unitType" class="form-control"
-														placeholder="for eg - kg , liter" />
+													<select id="unitType" name="unitType" class="form-select" required>
+														<option value="" disabled selected>Select a unit</option>
+														<option value="kg">Kilogram (kg)</option>
+														<option value="liter">Liter (liter)</option>
+														<option value="pcs">Pieces (pcs)</option>
+														<option value="dozen">Dozen</option>
+													</select>
+
 												</div>
 											</div>
 
@@ -235,8 +247,8 @@
 											<div class="mb-3">
 												<label for="productImage" class="form-label">Upload Product
 													Image</label>
-												<input type="file" id="productImage" name="imgFile"
-													class="form-control" accept="image/*" required />
+												<input type="file" id="productImage" name="imgFile" class="form-control"
+													accept="image/*" required />
 											</div>
 
 											<button type="submit" class="btn btn-success mb-3">
