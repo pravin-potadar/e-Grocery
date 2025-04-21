@@ -173,55 +173,55 @@
                                 <div class="col-12 mt-5">
                                     <div class="container mt-5">
                                         <h1>Product List</h1>
-
-                                        <table class="table table-bordered mt-4">
-                                            <thead class="table-dark">
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Name</th>
-                                                    <th>Image</th>
-                                                    <th>Price</th>
-                                                    <th>Discount</th>
-                                                    <th>Stock</th>
-                                                    <th>Category</th>
-                                                    <th>Brand</th>
-                                                    <th>Actions</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <c:forEach var="products" items="${products}">
+                                    
+                                        <div class="table-responsive mt-4" style="max-height: 500px; overflow-y: auto;">
+                                            <table class="table table-bordered">
+                                                <thead class="table-dark" style="position: sticky; top: 0; z-index: 1; background-color: #343a40;">
                                                     <tr>
-                                                        <td>${products.id}</td>
-                                                        <td>${products.name}</td>
-                                                        <td>
-                                                            <img src="resources/AdminModel/img/Products/${products.imageUrl}"
-                                                                alt="Product Image" width="80" height="80">
-                                                        </td>
-                                                        <td>₹ ${products.price}</td>
-                                                        <td>${products.discount} %</td>
-                                                        <td>
-                                                            <c:choose>
-                                                                <c:when test="${products.stock > 0}">
-                                                                    <span class="text-success">${products.stock}</span>
-                                                                </c:when>
-                                                                <c:otherwise>
-                                                                    <span class="text-danger">Out of Stock</span>
-                                                                </c:otherwise>
-                                                            </c:choose>
-                                                        </td>
-                                                        <td>${products.categoryId}</td>
-                                                        <td>${products.brand}</td>
-                                                        <td>
-                                                            <a href="edit-product/${product.id}"
-                                                                class="btn btn-warning btn-sm">Edit</a>
-                                                            <a href="delete-product/${product.id}"
-                                                                class="btn btn-danger btn-sm">Delete</a>
-                                                        </td>
+                                                        <th>ID</th>
+                                                        <th>Name</th>
+                                                        <th>Image</th>
+                                                        <th>Price</th>
+                                                        <th>Discount</th>
+                                                        <th>Stock</th>
+                                                        <th>Category</th>
+                                                        <th>Brand</th>
+                                                        <th>Actions</th>
                                                     </tr>
-                                                </c:forEach>
-                                            </tbody>
-                                        </table>
+                                                </thead>
+                                                <tbody >
+                                                    <c:forEach var="products" items="${products}">
+                                                        <tr>
+                                                            <td>${products.id}</td>
+                                                            <td>${products.name}</td>
+                                                            <td>
+                                                                <img src="resources/AdminModel/img/Products/${products.imageUrl}" alt="Product Image" width="80" height="80">
+                                                            </td>
+                                                            <td> ${products.price} ₹</td>
+                                                            <td>${products.discount} %</td>
+                                                            <td>
+                                                                <c:choose>
+                                                                    <c:when test="${products.stock > 0}">
+                                                                        <span class="text-success">${products.stock}</span>
+                                                                    </c:when>
+                                                                    <c:otherwise>
+                                                                        <span class="text-danger">Out of Stock</span>
+                                                                    </c:otherwise>
+                                                                </c:choose>
+                                                            </td>
+                                                            <td>${products.categoryId}</td>
+                                                            <td>${products.brand}</td>
+                                                            <td>
+                                                                <a href="edit-product/${products.id}" class="btn btn-warning btn-sm">Edit</a>
+                                                                <a href="delete-product/${products.id}" class="btn btn-danger btn-sm">Delete</a>
+                                                            </td>
+                                                        </tr>
+                                                    </c:forEach>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>
