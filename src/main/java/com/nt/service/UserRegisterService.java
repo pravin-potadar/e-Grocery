@@ -10,8 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.nt.dao.UsersRepository;
 import com.nt.entity.Users;
-import com.nt.repository.UsersRepository;
 
 @Service
 public class UserRegisterService {
