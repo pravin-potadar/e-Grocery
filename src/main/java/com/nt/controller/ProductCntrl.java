@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -79,4 +80,26 @@ public class ProductCntrl {
 		return "AdminModel/Product/list";
 	}
 
+	@GetMapping("searchProduct{id}")
+	public String getMethodName(@PathVariable int id , Model model) {
+		
+		
+		
+		Product presentProduct = productService.productFindById(id);
+		
+		List<com.nt.entity.Category> categories = categoryService.getAllCategories();
+
+		System.out.println(categories);
+
+		model.addAttribute("categories", categories);
+		
+		System.out.println(id  + " " + presentProduct);
+		
+		
+		model.addAttribute("presentProduct", presentProduct);
+		
+		return "AdminModel/Product/update";
+	}
+	
+	
 }

@@ -14,8 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.nt.dao.CategoryRepository;
 import com.nt.entity.Category;
-import com.nt.repository.CategoryRepository;
 
 import antlr.collections.List;
 

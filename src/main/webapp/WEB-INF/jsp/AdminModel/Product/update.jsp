@@ -179,12 +179,12 @@
 													<div class="col-md-6 mb-3">
 														<label for="productName" class="form-label">Product Name</label>
 														<input type="text" id="productName" name="name"
-															class="form-control" required />
+															class="form-control"  value="${presentProduct.name}" required/>
 													</div>
 
 													<div class="col-md-6 mb-3">
 														<label for="brand" class="form-label">Brand</label>
-														<input type="text" id="brand" name="brand" class="form-control"
+														<input type="text" id="brand" name="brand" class="form-control" value="${presentProduct.brand}"
 															required />
 													</div>
 												</div>
@@ -192,41 +192,39 @@
 												<div class="mb-3">
 													<label for="description" class="form-label">Description</label>
 													<textarea id="description" name="description" rows="4"
-														class="form-control" required></textarea>
+														class="form-control" value="${presentProduct.description}" required></textarea>
 												</div>
 
 												<div class="row">
 													<div class="col-md-4 mb-3">
 														<label for="price" class="form-label">Price</label>
 														<input type="number" id="price" name="price"
-															class="form-control" step="0.01" required />
+															class="form-control" step="0.01" value="${presentProduct.price}" required />
 													</div>
 
 													<div class="col-md-4 mb-3">
 														<label for="discount" class="form-label">Discount (%)</label>
 														<input type="number" id="discount" name="discount"
-															class="form-control" step="0.01" />
+															class="form-control" step="0.01" value="${presentProduct.discount}" />
 													</div>
 
 													<div class="col-md-4 mb-3">
 														<label for="quantity" class="form-label">Quantity /
 															Stock</label>
 														<input type="number" id="quantity" name="stock"
-															class="form-control" required />
+															class="form-control" value="${presentProduct.stock}" required />
 													</div>
 												</div>
 
 												<div class="row">
-													<div class="col-md-6 mb-3">
-														<select class="form-select" id="category" name="categoryId"
-															required>
-															<option value="" disabled selected>Select a category
-															</option>
-															<c:forEach var="cat" items="${categories}">
-																<option value="${cat.id}">${cat.name}</option>
-															</c:forEach>
-														</select>
-													</div>
+												<div class="col-md-6 mb-3">
+													<select class="form-select" id="category" name="categoryId" required>
+														<option value="" disabled selected>Select a category</option>
+														<c:forEach var="cat" items="${categories}">
+															<option value="${cat.id}">${cat.name}</option>
+														</c:forEach>
+													</select>
+												</div>
 
 													<div class="col-md-6 mb-3">
 														<select id="unitType" name="unitType" class="form-select"
@@ -243,7 +241,7 @@
 
 												<div class="mb-3">
 													<label for="status" class="form-label">Status</label>
-													<select id="status" name="status" class="form-control" required>
+													<select id="status" name="status" class="form-control" value="${presentProduct.brand}" required>
 														<option value="ACTIVE">Active</option>
 														<option value="INACTIVE">Inactive</option>
 														<option value="OUT_OF_STOCK">Out of Stock</option>
