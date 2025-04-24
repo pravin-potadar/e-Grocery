@@ -5,8 +5,8 @@
     <!DOCTYPE html>
     <html>
 
-    <head>
-       <!--  <meta charset="UTF-8">
+   <!--  <head>
+        <meta charset="UTF-8">
         <title>e-Grocery</title>
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -14,18 +14,19 @@
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-        <link rel="stylesheet" href="resources/UserModel/css/index.css"> -->
+        <link rel="stylesheet" href="resources/UserModel/css/index.css">
 
-    </head>
+    </head> -->
 
     <body>
 
 
-        <!-- <header class="headerTop">
+       <!--  <header class="headerTop">
 
             <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
                 <div class="container-fluid">
-                    <a >
+                    <a class="navbar-brand" href="#">
+                       
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -68,10 +69,8 @@
             </nav>
 
         </header> -->
-        
-          <jsp:include page="comman/header.jsp"></jsp:include>
 
-        <div class="main">
+       <%--  <div class="main">
             <div class="slide">
                 <div class="container-fluid ">
                     <div id="carouselExampleDark" class="carousel carousel-dark slide">
@@ -191,9 +190,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --%>
 
-        <!-- <div class="mt-5">
+        <div class="mt-5">
             <div class="footer">
                 <footer class="footer">
                     <div class="row mt-5 mb-5">
@@ -224,14 +223,12 @@
                 </footer>
                 
             </div>
-        </div> -->
+        </div>
 
     </body>
-    
-      <jsp:include page="comman/footer.jsp"></jsp:include>
 
-   <!--  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
- -->
+
     </html>

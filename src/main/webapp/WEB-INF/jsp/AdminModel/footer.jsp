@@ -1,10 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%-- <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
   <!doctype html>
   <html lang="en">
 
-  <head>
-    <meta charset="utf-8">
+  <head> --%>
+    <!-- <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dashboard</title>
 
@@ -20,13 +21,16 @@
 
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script> -->
 
-  </head>
+  <%-- </head>
 
   <body>
 
-    <header class="fixed-top">
+    <jsp:include page="./header.jsp"></jsp:include>
+
+ --%>
+    <!-- <header class="fixed-top">
       <nav>
         <div class="top-area">
           <div class="col-12 header">
@@ -58,13 +62,13 @@
           </div>
         </div>
       </nav>
-    </header>
+    </header> -->
 
-    <div class=" col-12 bottum-area " style="margin-top: 45px; position: fixed;">
+    <!-- <div class=" col-12 bottum-area " style="margin-top: 45px; position: fixed;">
       <div class="row">
         <div class="col-12 ">
-          <div class="row">
-            <div class="col-2" style="position: static;">
+          <div class="row"> -->
+            <!-- <div class="col-2" style="position: static;">
               <div class="sidebar col-12" style="height: 93vh;">
                 <div class="ms-3 mt-4">
                   <div class="row">
@@ -80,10 +84,9 @@
                         <i class="ms-3">Category</i>
                       </button>
                       <div id="CategorySubPart" class="row ms-3 subList">
-                        <a href="category/add" class="col-12 mt-2"><i class="fa-solid fa-plus"></i><i
-                            class="ms-3">Add</i></a>
-                        <a class="col-12"><i class="fa-solid fa-pen-to-square"></i><i class="ms-3">update</i></a>
-                        <a class="col-12"><i class="fa-solid fa-table-list"></i><i class="ms-3">List</i></a>
+                        <a href="category-add" class="col-12 mt-2"><i class="fa-solid fa-plus"></i><i class="ms-3">Add</i></a>
+                        <a href="category-update" class="col-12"><i class="fa-solid fa-pen-to-square"></i><i class="ms-3">update</i></a>
+                        <a href="listCategory" class="col-12"><i class="fa-solid fa-table-list"></i><i class="ms-3">List</i></a>
                       </div>
                     </div>
                   </div>
@@ -94,9 +97,9 @@
                         <i class="ms-3">Product</i>
                       </button>
                       <div id="productSubPart" class="row ms-3 subList">
-                        <a class="col-12 mt-2"><i class="fa-solid fa-plus"></i><i class="ms-3">Add</i></a>
-                        <a class="col-12"><i class="fa-solid fa-pen-to-square"></i><i class="ms-3">update</i></a>
-                        <a class="col-12"><i class="fa-solid fa-table-list"></i><i class="ms-3">List</i></a>
+                        <a href="product-add" class="col-12 mt-2"><i class="fa-solid fa-plus"></i><i class="ms-3">Add</i></a>
+                        <a href="product-update" class="col-12"><i class="fa-solid fa-pen-to-square"></i><i class="ms-3">update</i></a>
+                        <a href="product-list" class="col-12"><i class="fa-solid fa-table-list"></i><i class="ms-3">List</i></a>
                       </div>
                     </div>
                   </div>
@@ -148,12 +151,12 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
 
-            <div class="main col-10" style="position: relative;">
+           <!--  <div class="main col-10" style="position: relative;">
               <div class="container-fluid">
                 <div class="col-12">
-                  <!-- <div class="topCards">
+                  <div class="topCards">
                     <div class="row">
 
                       <div class="col-12 mt-5">
@@ -182,10 +185,25 @@
                               <hr class="mt-2">
                             </div>
                           </div>
+ -->
+                          <!-- <div class="col-2">
+                            <div class="row">
+                              <div class="col-12 headerCard">
+                                <h5>Total Sales</h5>
+                              </div>
+                              <hr width="80%">
+                              <div class="col-12 mainCard ">
+                                <span>10 00 000 </span> <s class="fa-solid fa-indian-rupee-sign"></s>
+                              </div>
+                              <hr width="80%">
+                              <div class="footerCard ">
+                                <span class="fa-solid fa-arrow-up"></span>
+                                <span class="fa-solid fa-arrow-down"></span>
+                              </div>
+                            </div>
+                          </div> -->
 
-                          
-
-                          <div class="col-2">
+                        <!--   <div class="col-2">
                             <div class="row">
                               <div class="col-12 headerCard">
                                 <h5 class="d-inline">Total Products</h5>
@@ -258,7 +276,7 @@
                       </div>
 
                     </div>
-                  </div> -->
+                  </div>
                 </div>
               </div>
             </div>
@@ -266,13 +284,13 @@
         </div>
       </div>
     </div>
-
+ -->
   </body>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 
-  <script src="resources/AdminModel/js/dashboard.js"></script>
+    <script src="resources/AdminModel/js/dashboard.js"></script>
 
   </html>
