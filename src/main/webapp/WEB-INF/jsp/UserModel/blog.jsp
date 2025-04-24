@@ -5,7 +5,7 @@
         <!DOCTYPE html>
         <html>
 
-        <head>
+       <!--  <head>
             <meta charset="UTF-8">
             <title>e-Grocery</title>
 
@@ -23,27 +23,17 @@
 
             <link rel="stylesheet" href="resources/UserModel/css/blog.css">
 
-        </head>
+        </head> -->
 
         <body>
 
 
-            <header class="headerTop">
+           <!--  <header class="headerTop">
 
                 <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
                     <div class="container-fluid">
                         <a class="navbar-brand" href="#">
-                            <!-- <div class="row">
-                            <span class="col logo">e</span>
-                            <span class="col logo">-</span>
-                            <span class="col logo">G</span>
-                            <span class="col logo">r</span>
-                            <span class="col logo">o</span>
-                            <span class="col logo">c</span>
-                            <span class="col logo">e</span>
-                            <span class="col logo">r</span>
-                            <span class="col logo">y</span>
-                        </div> -->
+                           
                         </a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -85,8 +75,10 @@
                     </div>
                 </nav>
 
-            </header>
-
+            </header> -->
+				
+				<jsp:include page="comman/header.jsp"></jsp:include>
+			
             <div class="main blog-section py-5">
                 <div class="container">
                     <div class="text-center mb-5">
@@ -138,7 +130,7 @@
 
 
 
-            <div class="mt-5">
+           <!--  <div class="mt-5">
                 <div class="footer">
                     <footer class="footer">
                         <div class="row mt-5 mb-5">
@@ -169,12 +161,14 @@
                     </footer>
 
                 </div>
-            </div>
+            </div> -->
 
         </body>
+        
+         <jsp:include page="comman/footer.jsp"></jsp:include>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"></script>
-
+ -->
         </html>

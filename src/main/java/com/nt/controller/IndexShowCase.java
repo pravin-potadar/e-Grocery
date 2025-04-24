@@ -16,7 +16,7 @@ public class IndexShowCase {
 	@Autowired
 	private CategoryService categoryService;
 	
-	@GetMapping("index")
+	@GetMapping("/")
 	public String index() {
 		
 		return"redirect:CategoryShowCase";
