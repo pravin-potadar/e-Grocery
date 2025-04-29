@@ -6,6 +6,10 @@
     <meta charset="UTF-8">
     <title>Register</title>
     <link rel="stylesheet" href="resources/LoginAndRegister/register.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
   </head>
 
   <body>
@@ -27,7 +31,7 @@
           <input type="password" name="password" id="password" placeholder="Password" required>
         </div>
 
-        <div class="form-group triple">
+       <!--  <div class="form-group triple">
           <label for="dob">Date of Birth</label>
           <label for="mobileNo">Mobile Number</label>
           <label for="areaPinCode">Area Pin Code</label>
@@ -44,11 +48,12 @@
         <div class="form-group single">
           <label for="userImage">Upload Profile Image:</label>`
           <input type="file" name="userImageFile" id="userImage" accept="image/*">
-        </div>
+        </div> -->
 
         <button type="submit">Register</button>
       </form>
     </div>
   </body>
+
 
   </html>

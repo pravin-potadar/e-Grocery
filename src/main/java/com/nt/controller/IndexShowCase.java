@@ -34,7 +34,7 @@ public class IndexShowCase {
 
 		model.addAttribute("listOfProducts", listOfProducts);
 		
-		return "UserModel/index";
+		return "UserModel/home";
 
 //		return "redirect:CategoryShowCase";
 	}
