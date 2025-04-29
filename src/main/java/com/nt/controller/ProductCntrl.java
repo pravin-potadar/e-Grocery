@@ -102,4 +102,23 @@ public class ProductCntrl {
 	}
 	
 	
+	
+//	Single PAge Show In Module
+	
+	
+	@GetMapping("onClickProductAndShowDatails{id}")
+	public String singleProductShow( @PathVariable int id , Model model ) {
+		
+		Product presentProduct = productService.productFindById(id);
+		
+		model.addAttribute("productShow", presentProduct);
+
+		return "UserModel/singleProductShow";
+		
+
+	}
+	
+	
+	
+	
 }
