@@ -31,7 +31,7 @@
           <input type="password" name="password" id="password" placeholder="Password" required>
         </div>
 
-       <!--  <div class="form-group triple">
+        <div class="form-group triple">
           <label for="dob">Date of Birth</label>
           <label for="mobileNo">Mobile Number</label>
           <label for="areaPinCode">Area Pin Code</label>
@@ -48,7 +48,7 @@
         <div class="form-group single">
           <label for="userImage">Upload Profile Image:</label>`
           <input type="file" name="userImageFile" id="userImage" accept="image/*">
-        </div> -->
+        </div> 
 
         <button type="submit">Register</button>
       </form>
