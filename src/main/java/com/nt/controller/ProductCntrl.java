@@ -119,6 +119,15 @@ public class ProductCntrl {
 	}
 	
 	
+//	Product BUy 
+	
+	@PostMapping("buyProduct")
+	public String dami() {
+		return "redirect:order";
+	}
+	
+	
+	
 	
 	
 }

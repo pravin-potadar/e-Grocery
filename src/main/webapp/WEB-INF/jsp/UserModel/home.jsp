@@ -199,7 +199,7 @@
 														<p>${product.name}</p>
 													</div>
 													<div class="shopDiscription">
-														<p>${product.description}</p>
+														<p class=" word-wrap  text-wrap">${product.description}</p>
 													</div>
 													<div class="shopBtn mt-2">
 														<div class="row">
