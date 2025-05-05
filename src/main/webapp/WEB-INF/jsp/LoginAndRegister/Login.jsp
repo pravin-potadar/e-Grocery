@@ -37,7 +37,7 @@
 				<button type="submit">Login</button>
 
 				<p class="register-link">
-					Don't have an account? <a href="register">Register Here</a>
+					Don't have an account? <a href="role">Register Here</a>
 				</p>
 			</form>
 		</div>

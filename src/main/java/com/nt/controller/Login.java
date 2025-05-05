@@ -13,13 +13,13 @@ import com.nt.service.UserLoginService;
 
 
 @Controller
-public class UserLogin {
+public class Login {
 	
 	@Autowired
 	private UserLoginService userLoginService;
 	
 	
-//	@GetMapping("/")
+	@GetMapping("/")
 	public String login() {
 		return"LoginAndRegister/Login";
 	}
@@ -35,11 +35,21 @@ public class UserLogin {
 		// (Small fix below, comparing strings using equals, not '==')
         if (currentUser != null && email.equals(currentUser.getEmail()) && 
             password.equals(currentUser.getPassword())) {
-            return "redirect:indexPage";
-        } else {
-        	model.addAttribute("errorMsg","First Register please");
-        	return"LoginAndRegister/Login";
-        }	
+        	
+        	if(currentUser.getRole().equals("user")) {
+        		
+        		
+        		return "redirect:index";
+        	}else if(currentUser.getRole().equals("seller")) {
+        		return "redirect:dashboard";
+        	}else {
+            	model.addAttribute("errorMsg","First Register please");
+            	return"LoginAndRegister/Login";
+            }	
+        	
+            
+        }
+        return "redirect:/";
 	}
 	
 
