@@ -54,4 +54,18 @@ public class UserRegisterService {
 		
 	}
 
+
+	public boolean addNewUserRegister(Users userData) {
+		Users presentUser = usersRepository.save(userData);
+		
+		if(presentUser != null)
+			return true;
+		else
+		return false;
+		
+	}
+
+
+	
+
 }

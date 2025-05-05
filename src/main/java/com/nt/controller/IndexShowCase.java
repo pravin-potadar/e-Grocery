@@ -21,7 +21,7 @@ public class IndexShowCase {
 	@Autowired
 	private ProductsService productService;
 
-	@GetMapping("/")
+	@GetMapping("index")
 	public String index(Model model) {
 
 		List<com.nt.entity.Category> categories = categoryService.getAllCategories();

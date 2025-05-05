@@ -14,7 +14,7 @@
 
   <body>
     <div class="register-container">
-      <form class="register-form" action="registerForm" method="POST" enctype="multipart/form-data">
+      <form class="register-form" action="sellerRegisterForm" method="POST" enctype="multipart/form-data">
         <h2>Register</h2>
 
         <div class="form-group double">
@@ -49,6 +49,8 @@
           <label for="userImage">Upload Profile Image:</label>`
           <input type="file" name="userImageFile" id="userImage" accept="image/*">
         </div> 
+
+        <input type="hidden" name="role" value="seller">
 
         <button type="submit">Register</button>
       </form>
