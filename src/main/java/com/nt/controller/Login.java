@@ -42,14 +42,16 @@ public class Login {
         		return "redirect:index";
         	}else if(currentUser.getRole().equals("seller")) {
         		return "redirect:dashboard";
-        	}else {
-            	model.addAttribute("errorMsg","First Register please");
-            	return"LoginAndRegister/Login";
-            }	
+        	}    		
+            	
+            	
         	
             
         }
-        return "redirect:/";
+        model.addAttribute("userEmail",email);
+		model.addAttribute("userPass",password);
+    	model.addAttribute("errorMsg","Invalid username or password");
+        return"LoginAndRegister/Login";
 	}
 	
 

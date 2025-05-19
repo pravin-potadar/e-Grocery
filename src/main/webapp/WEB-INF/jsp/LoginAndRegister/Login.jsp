@@ -17,21 +17,19 @@
 
 	<body>
 		<div class="login-container">
-			<form class="login-form" action="userLogin" method="POST">
+			<form class=" login-form" action="userLogin" method="POST">
 				<h2>Welcome Back</h2>
 
+				
+
 				<div class="form-group">
-					<center>
-						<!-- <span style="color: red;">${errorMsg}</span> -->
-					</center>
+					<input type="email" name="email" placeholder="Email" value="${userEmail}" required>
+					<span>${errorMsg}</span>
 				</div>
 
 				<div class="form-group">
-					<input type="email" name="email" placeholder="Email" required>
-				</div>
-
-				<div class="form-group">
-					<input type="password" name="password" placeholder="Password" required>
+					<input type="password" name="password" placeholder="Password" value="${userPass}" required>
+					<span>${errorMsg}</span>
 				</div>
 
 				<button type="submit">Login</button>

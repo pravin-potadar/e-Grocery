@@ -31,8 +31,8 @@
                     <div class="row">
                        
                         <div class="col-6">
-                            <form action="buyProduct" method="post">
-                                <input type="hidden" name="productId" value="${product.id}" />
+                            <form action="order${productShow.id}" method="get">
+                                <!-- <input type="hidden" name="productId" value="${product.id}" /> -->
                                 <button type="submit" class="buy-button mt-4">Buy Now</button>
                             </form>
                         </div>
