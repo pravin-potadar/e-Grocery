@@ -64,21 +64,22 @@
             <div class="product-card">
                 <div class="row">
                     <div class="col-md-6">
-                        <img class="product-img" src="https://via.placeholder.com/300x200?text=Product+Image"
-                            alt="Product Image">
+                        <img style="height: 300px; width: 300px;" class="product-img" src="resources/AdminModel/img/Products/${product.imageUrl}"
+                            alt="${product.name}" />
                     </div>
                     <div class="col-md-6 d-flex flex-column justify-content-center">
-                        <h5 class="mb-2">Product Name: Fresh Mango</h5>
-                        <p>Quantity: 2 kg</p>
+                        <h5 class="mb-2">Product Name: ${product.name}</h5>
+                        <p>Quantity: ${quantity} kg</p>
                     </div>
                 </div>
 
                 <div class="text-center mt-4">
-                    <h4>Net Amount = ₹1000</h4>
+                    <h4>Net Amount = ₹${netAmount}</h4>
                 </div>
             </div>
 
-            <form action="orderConfirm" method="post" >
+
+            <form action="orderConfirm" method="post">
 
                 <div class="product-card">
                     <h5 class="mb-3">Delivery Address</h5>
