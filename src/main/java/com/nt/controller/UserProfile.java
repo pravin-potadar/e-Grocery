@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class UserProfile {
 	
-	@GetMapping("profile")
+	@GetMapping("UserProfile")
 	public String profilePage() {
 		
 		return "UserModel/userProfile";
