@@ -86,7 +86,7 @@
                         <div class=" justify-content-end">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="ms-2 nav-link active" aria-current="page" href="dashboard">Login</a>
+                                    <a class="ms-2 nav-link active" aria-current="page" href="UserProfile"><img class="navbarUserProfile" src="" alt=""></a>
                                 </li>
 
 
