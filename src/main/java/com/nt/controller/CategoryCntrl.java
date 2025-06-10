@@ -7,18 +7,29 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.nt.entity.Category;
 import com.nt.service.CategoryService;
+import com.nt.service.ProductsService;
+
 
 @Controller
 public class CategoryCntrl {
 
 	@Autowired
 	private CategoryService categoryService;
+	
+	
+
+	@Autowired
+	private ProductsService productService;
+	
+	
+	
 
 	@GetMapping("category-add")
 	public String addCategoryForm() {
@@ -81,6 +92,22 @@ public class CategoryCntrl {
 		return "AdminModel/Category/update";
 	}
 
+	
+	
+	@GetMapping("listSearchCategory")
+	public String ListCategoryUpdate(@RequestParam int id, Model model) {
+
+	System.out.println(id);
+
+		Category categoryPresentData = categoryService.getCategoryFindById(id);
+		
+		model.addAttribute("presentCategory",categoryPresentData);
+		
+		return "AdminModel/Category/update";
+	}
+
+	
+	
 	@PostMapping("updateCategory")
 	public String updateCategory(@ModelAttribute Category updateCategory) {
 		
@@ -88,6 +115,23 @@ public class CategoryCntrl {
 		
 		return "redirect:listCategory";
 		
+	}
+	
+	
+	
+	
+	
+	@PostMapping("searchCategory")
+	public String searchCategoryProducts(@RequestParam int searchCategoryId) {
+		
+		
+		System.out.println(searchCategoryId);
+		
+		
+		productService.getCategoryProducts(searchCategoryId);
+		
+		
+		return "";
 	}
 	
 	

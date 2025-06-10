@@ -5,6 +5,8 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Login</title>
+		
+		
 		<link rel="stylesheet" href="resources/LoginAndRegister/login.css">
 
 		<script src="https://code.jquery.com/jquery-3.7.1.min.js"
@@ -12,6 +14,7 @@
 			
 			
 	<script src="resources/LoginAndRegister/login.js"></script>
+
 
 	</head>
 
@@ -24,12 +27,12 @@
 
 				<div class="form-group">
 					<input type="email" name="email" placeholder="Email" value="${userEmail}" required>
-					<span>${errorMsg}</span>
+					<span class="errMsg">${errorMsg}</span>
 				</div>
 
 				<div class="form-group">
 					<input type="password" name="password" placeholder="Password" value="${userPass}" required>
-					<span>${errorMsg}</span>
+					<span class="errMsg">${errorMsg}</span>
 				</div>
 
 				<button type="submit">Login</button>

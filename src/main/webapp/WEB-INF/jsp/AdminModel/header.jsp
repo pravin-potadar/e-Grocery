@@ -53,94 +53,98 @@
         </nav>
       </header>
 
-      <div class="col-12 bottum-area" style="margin-top: 10vh; position: fixed">
+      <div class="col-12 siderbarStart bottum-area">
         <div class="row">
           <div class="col-12">
             <div class="row">
-              <div class=" sidebar col-2" style="position: static ">
-                <div class=" col-12" style="height: 90vh">
+              <div class=" sidebar col-2 max-vh-100 min-vh-100  bg-gray">
+                <div class=" col-12">
                   <div class="ms-3 mt-4">
                     <div class="ms-1 mt-5 col-12 row">
-                      <button class="dashboard row">
+                      <button class="sidBarBtn dashboard row" data-href="dashboard">
                         <i class="siderbarIcon col-3 d-flex align-items-center fa-solid fa-house"></i>
-                        <i class="col-9 d-flex align-items-center ">Dashbord</i>
+                        <i class="col-9 d-inline align-items-center ">Dashbord</i>
                       </button>
                     </div>
                     <div class=" mt-2 col-12">
                       <div class="ms-1 Category">
-                        <button id="Category" class="col-12 row">
-                          <i class="siderbarIcon  col-3 d-flex align-items-center fa-solid fa-solid fa-clipboard-list"></i>
-                          <i class="col-9 d-flex align-items-center">Category</i>
+                        <button id="Category" class=" sidBarBtn col-12 row">
+                          <i
+                            class="siderbarIcon  col-3 d-flex align-items-center fa-solid fa-solid fa-clipboard-list"></i>
+                          <i class="col-9 d-inline align-items-center">Category</i>
                         </button>
                         <div id="CategorySubPart" class="row ms-3 subList">
-                          <a href="category-add" class="col-12 mt-2"><i class="fa-solid fa-plus"></i><i
+                          <a href="category-add" class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-plus"></i><i
                               class="ms-3">Add</i></a>
-                          <a href="category-update" class="col-12"><i class="fa-solid fa-pen-to-square"></i><i
+                          <a href="category-update" class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-pen-to-square"></i><i
                               class="ms-3">update</i></a>
-                          <a href="listCategory" class="col-12"><i class="fa-solid fa-table-list"></i><i
+                          <a href="listCategory" class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-table-list"></i><i
                               class="ms-3">List</i></a>
                         </div>
                       </div>
                     </div>
                     <div class="row mt-3">
                       <div class="product">
-                        <button id="product" class="col-12 row">
-                          <i class="siderbarIcon col-3 d-flex align-items-center fa-solid fa-solid fa-solid fa-cart-shopping"></i> 
-                          <i class="col-9 d-flex align-items-center">Product</i>
+                        <button id="product" class=" sidBarBtn col-12 row">
+                          <i
+                            class="siderbarIcon col-3 d-flex align-items-center fa-solid fa-solid fa-solid fa-cart-shopping"></i>
+                          <i class="col-9 d-inline align-items-center">Product</i>
                         </button>
                         <div id="productSubPart" class="row ms-3 subList">
-                          <a href="product-add" class="col-12 mt-2"><i class="fa-solid fa-plus"></i><i
+                          <a href="product-add" class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-plus"></i><i
                               class="ms-3">Add</i></a>
-                          <a href="product-update" class="col-12"><i class="fa-solid fa-pen-to-square"></i><i
+                          <a href="product-update" class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-pen-to-square"></i><i
                               class="ms-3">update</i></a>
-                          <a href="product-list" class="col-12"><i class="fa-solid fa-table-list"></i><i
+                          <a href="product-list" class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-table-list"></i><i
                               class="ms-3">List</i></a>
                         </div>
                       </div>
                     </div>
                     <div class="row mt-3">
                       <div class="Orders">
-                        <button id="orders" class="col-12 row">
+                        <button id="orders" class="sidBarBtn col-12 row">
                           <i class="siderbarIcon col-3 d-flex align-items-center fa-solid fa-solid fa-solid fa-box"></i>
-                          <i class="col-9 d-flex align-items-center">Orders</i>
+                          <i class="col-9 d-inline align-items-center">Orders</i>
                         </button>
                         <div id="ordersSubPart" class="row ms-3 subList">
-                          <a class="col-12 mt-2"><i class="fa-solid fa-plus"></i><i class="ms-3">Completed Orders</i>
+                          <a class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-plus"></i><i class="ms-3">Completed Orders</i>
                           </a>
-                          <a class="col-12"><i class="fa-solid fa-pen-to-square"></i><i class="ms-3">Pending Orders</i>
+                          <a class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-pen-to-square"></i><i class="ms-3">Pending Orders</i>
                           </a>
-                          <a class="col-12"><i class="fa-solid fa-table-list"></i><i class="ms-3">All Orders</i></a>
-                          <a class="col-12"><i class="fa-solid fa-table-list"></i><i class="ms-3">Canceled Orders</i>
+                          <a class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-table-list"></i><i class="ms-3">All Orders</i></a>
+                          <a class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-table-list"></i><i class="ms-3">Canceled Orders</i>
                           </a>
                         </div>
                       </div>
                     </div>
                     <div class="row mt-3">
                       <div class="Customers">
-                        <button id="Customers" class="col-12 row">
-                          <i class="siderbarIcon col-3 d-flex align-items-center fa-solid fa-solid fa-solid fa-circle-user"></i>
-                          <i class="col-9 d-flex align-items-center">Customers</i>
+                        <button id="Customers" class=" sidBarBtn col-12 row">
+                          <i
+                            class="siderbarIcon col-3 d-flex align-items-center fa-solid fa-solid fa-solid fa-circle-user"></i>
+                          <i class="col-9 d-inline align-items-center">Customers</i>
                         </button>
                         <div id="CustomersSubPart" class="row ms-3 subList">
-                          <a class="col-12 mt-2"><i class="fa-solid fa-plus"></i><i class="ms-3">Customer Reviews</i>
+                          <a class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-plus"></i><i class="ms-3">Customer Reviews</i>
                           </a>
-                          <a class="col-12"><i class="fa-solid fa-pen-to-square"></i><i class="ms-3">Customer
+                          <a class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-pen-to-square"></i><i class="ms-3">Customer
                               Queries</i></a>
-                          <a class="col-12"><i class="fa-solid fa-table-list"></i><i class="ms-3">All Customers</i>
+                          <a class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-table-list"></i><i class="ms-3">All Customers</i>
                           </a>
                         </div>
                       </div>
                     </div>
                     <div class="row mt-3">
                       <div class="Transactions">
-                        <button id="Transactions" class="col-12 row">
-                          <i class="siderbarIcon col-3 d-flex align-items-center fa-solid fa-solid fa-solid fa-file-invoice-dollar"></i>
-                          <i class="col-9 d-flex align-items-center">Transactions</i>
+                        <button id="Transactions" class=" sidBarBtn col-12 row">
+                          <i class="siderbarIcon col-3 d-flex align-items-center fa-solid fa-solid fa-solid fa-file-invoice-dollar">
+                          </i>
+                          <i class="col-9 d-inline align-items-center">Transactions</i>
                         </button>
                         <div id="TransactionsSubPart" class="row ms-3 subList">
-                          <a class="col-12 mt-2"><i class="fa-solid fa-plus"></i><i class="ms-3">Payments</i></a>
-                          <a class="col-12"><i class="fa-solid fa-pen-to-square"></i><i class="ms-3">Refunds</i></a>
-                          <a class="col-12"><i class="fa-solid fa-table-list"></i><i class="ms-3">Payouts</i></a>
+                          <a class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-plus"></i><i class="ms-3">Payments</i></a>
+                          <a class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-pen-to-square"></i><i class="ms-3">Refunds</i></a>
+                          <a class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-table-list"></i><i class="ms-3">Payouts</i></a>
                         </div>
                       </div>
                     </div>
@@ -148,10 +152,9 @@
                 </div>
               </div>
 
-              <div class="main col-10" style="position: relative">
 
 
-                <!--  </div>
+              <!--  </div>
           </div>
         </div>
       </div>

@@ -65,6 +65,26 @@
             .submit-btn:hover {
                 background-color: #157347;
             }
+
+
+            .stock-status {
+                font-size: 16px;
+                margin-top: 10px;
+            }
+
+            .stock-status strong {
+                margin-right: 8px;
+            }
+
+            .stock-available {
+                color: green;
+                font-weight: bold;
+            }
+
+            .stock-unavailable {
+                color: red;
+                font-weight: bold;
+            }
         </style>
     </head>
 
@@ -74,7 +94,7 @@
 
         <div class="container mt-5">
             <div>
-                <form action="orderConfirmation ${product.id}" method="get" >
+                <form action="orderConfirmation ${product.id}" method="get">
                     <h3 class="text-center mb-4">Order Details</h3>
 
                     <div class="row">
@@ -97,20 +117,23 @@
                                 <div class="col-6">
                                     <strong>Stock:</strong>
                                     <c:choose>
-                                        <c:when test="${product.stock > 0}">Available</c:when>
-                                        <c:otherwise>Out of Stock</c:otherwise>
+                                        <c:when test="${product.stock > 0}">Available : ${product.stock}</c:when>
+                                        <!-- <c:otherwise>Out of Stock</c:otherwise> -->
                                     </c:choose>
                                 </div>
                             </div>
 
                             <div class="mt-4">
                                 <label class="mb-2">Quantity:</label><br>
-                                <button class="qty-btn" type="button">-</button>
-                                <span class="qty-display">1</span>
-                                <button class="qty-btn" type="button">+</button>
-                                <input type="hidden" name="quantity" value="1" />
+                                <button class="qty-btn" type="button" id="decrease">-</button>
+                                <span class="qty-display" id="qtyDisplay">1</span>
+                                <button class="qty-btn" type="button" id="increase">+</button>
+                                <input type="hidden" name="quantity" id="qtyInput" value="1" />
                                 <input type="hidden" name="productId" value="${product.id}" />
+                                <input type="hidden" id="stockLimit" value="${product.stock}" />
+                                <small class="text-muted d-block mt-2">In stock: ${product.stock}</small>
                             </div>
+
                         </div>
                     </div>
 
@@ -123,5 +146,33 @@
         <jsp:include page="comman/footer.jsp"></jsp:include>
 
     </body>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const qtyDisplay = document.getElementById("qtyDisplay");
+            const qtyInput = document.getElementById("qtyInput");
+            const stockLimit = parseInt(document.getElementById("stockLimit").value, 10);
+
+            document.getElementById("increase").addEventListener("click", function () {
+                let qty = parseInt(qtyDisplay.textContent, 10);
+                if (qty < stockLimit) {
+                    qty++;
+                    qtyDisplay.textContent = qty;
+                    qtyInput.value = qty;
+                }
+            });
+
+            document.getElementById("decrease").addEventListener("click", function () {
+                let qty = parseInt(qtyDisplay.textContent, 10);
+                if (qty > 1) {
+                    qty--;
+                    qtyDisplay.textContent = qty;
+                    qtyInput.value = qty;
+                }
+            });
+        });
+    </script>
+
+
 
     </html>
