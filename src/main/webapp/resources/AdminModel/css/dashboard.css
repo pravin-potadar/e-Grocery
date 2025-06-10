@@ -1,40 +1,134 @@
-@charset "UTF-8";
+/* Reset default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-body header {
+html, body {
+  height: 100%;
+  overflow: hidden; /* Prevent scrollbars unless needed */
+  font-family: sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Styles */
+header {
   z-index: 999;
   height: 10vh;
   background: rgba(66, 70, 70, 0.834);
-  color: rgb(255, 255, 255);
+  color: white;
+  width: 100%;
+  position: fixed;
+  top: 0;
 }
 
-
+/* Sidebar Styles */
 .sidebar {
-  z-index: 0;
   background: rgba(53, 54, 54, 0.882);
-  color: rgb(255, 255, 255);
+  color: white;
+  height: 90vh; /* Remaining after header */
+  overflow-y: auto;
+  padding-top: 1rem;
 }
 
-.bottum-area {
-  height: 80vh;
+.siderbarStart {
+  position: fixed;
+  top: 10vh; /* Start below the fixed header */
+  height: 90vh;
+  overflow-y: auto;
 }
 
-.logo {
-  display: inline;
+/* Main Content */
+.main {
+ /* margin-left: 16.66%;  Assuming sidebar is col-2 (≈2/12 = 16.66%) */
+  margin-top: 10vh;
+  height: 90vh;
+  overflow-y: auto;
+  padding: 1rem;
 }
 
-button {
+/* Buttons and Icons */
+/* button {
   background: none;
   color: white;
-  padding: 5px 3px 10px 5px;
-  margin: 0px 0px 6px -9px;
+  padding: 5px 10px;
+  border: none;
+  width: 100%;
+  text-align: left;
+} */
+
+.sidBarBtn {
+  background: linear-gradient(145deg, #4b6cb7, #182848); /* Gradient background */
+  color: #ffffff;
+  padding: 10px 16px;
+  margin: 6px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* space between icon and text */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, background 0.3s ease;
 }
+
+.sidBarBtn:hover {
+  transform: scale(1.03); /* Slight zoom effect */
+  background: linear-gradient(145deg, #5c79c9, #203b75); /* Lighter hover */
+}
+
+/* Optional: Active state */
+.sidBarBtn:active {
+  transform: scale(0.98);
+  box-shadow: none;
+}
+
+.sidBarBtn:hover {
+  animation: bounce 0.4s;
+}
+
+@keyframes bounce {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+
+.sidBarAtag {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px 16px;
+  margin: 8px 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  display: block;
+  position: relative;
+}
+
+.sidBarAtag:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #00ffff;
+  transform: translateX(5px); /* subtle slide right */
+}
+
+.sidBarAtag:active {
+  transform: scale(0.97);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+
 
 .subList {
   display: none;
-}
-
-.subList a {
-  display: block;
 }
 
 .subList a {
@@ -44,107 +138,59 @@ button {
   text-decoration: none;
 }
 
-.siderbarIcon {
-  font-size: 18px;
-  /* adjust icon size */
-  color: #ffffff;
-  /* optional: icon color */
-  vertical-align: middle;
+
+
+.headerCard {
+  background-color: #2c3e50;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 10px 10px 0 0;
+}
+
+.mainCard {
+  background-color: #34495e;
+  color: white;
+  padding: 15px;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.mainCard:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.mainCard span {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.headerCard h5 {
+  font-size: 1rem;
+}
+
+.fa-arrow-up {
+  color: limegreen;
+}
+
+.fa-arrow-down {
+  color: red;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mainCard {
+  animation: fadeInUp 0.5s ease-in-out;
 }
 
 
-/* Header Container */
-/* header {
-    background-color: #595762e9;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    height: 60px;
-    z-index: 1000;
-  } */
-
-/* Top Bar */
-/* .top-area {
-    width: 100%;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-  } */
-
-/* Logo and Menu Icon */
-/* .header i.fa-bars {
-    font-size: 20px;
-    cursor: pointer;
-    color: #2c3e50;
-  } 
-  
-  .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #28a745;
-    margin-left: 15px;
-  } */
-
-/* Right Icons */
-/* .header .fa-bell {
-    font-size: 18px;
-    cursor: pointer;
-    color: #2c3e50;
-  }
-  
-  .header img {
-    border: 2px solid #28a745;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-  }
-  
-  .header img:hover {
-    transform: scale(1.05);
-  } */
-
-/* Optional: Notification Bell Pulse */
-/* .fa-bell::after {
-    content: "";
-    position: absolute;
-    top: 6px;
-    right: 8px;
-    height: 8px;
-    width: 8px;
-    background-color: red;
-    border-radius: 50%;
-  }
-
-
-  .sidebar-btn, .sub-link {
-    background: none;
-    border: none;
-    color: #000;
-    font-weight: 500;
-    padding: 10px;
-    width: 100%;
-    text-align: left;
-    transition: background-color 0.2s ease;
-  }
-  
-  .sidebar-btn:hover, .sub-link:hover {
-    background-color: #f2f2f2;
-    cursor: pointer;
-    border-radius: 4px;
-    text-decoration: none;
-    color: #000;
-  }
-  
-  .subList a {
-    display: block;
-    padding-left: 10px;
-    margin-top: 5px;
-    color: #555;
-  }
-  
-  .subList a:hover {
-    color: #000;
-  }
-  
-  .sidebar .fa-solid {
-    font-size: 16px;
-    min-width: 20px;
-  } */

@@ -26,13 +26,13 @@ public class Login {
 	@PostMapping("/userLogin")
 	public String userLogin(@RequestParam String email, @RequestParam String password, Model model,
 			HttpSession session) {
+		
+		System.out.println(session.getAttribute(email));
 
 		Users currentUser = userLoginService.userLoginService(email);
 
 		if (currentUser != null && password.equals(currentUser.getPassword())) {
-			// Save only necessary data
-			
-//			Cookie ck = new Cookie();
+
 			
 			
 			
@@ -49,6 +49,8 @@ public class Login {
 
 		// Handle login failure
 		model.addAttribute("userEmail", email);
+		model.addAttribute("userPass", password);
+		
 		model.addAttribute("errorMsg", "Invalid email or password");
 		return "LoginAndRegister/Login";
 	}

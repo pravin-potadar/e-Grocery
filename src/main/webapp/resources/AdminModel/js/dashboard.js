@@ -21,4 +21,26 @@ $(document).ready(function () {
     $("#Transactions").on("click", function () {
         $("#TransactionsSubPart").slideToggle(200);
     });
+
+
+
+
+
+
+
+
+
+
+    $(document).ready(function () {
+    $('.sidBarBtn').on('click', function () {
+      const targetUrl = $(this).data('href');
+      if (targetUrl) {
+        window.location.href = targetUrl;
+      }
+    });
+  });
+
+
+
+  
 });
