@@ -8,6 +8,8 @@ public class Register {
 	
 	@GetMapping("role")
 	public String roleSelect() {
+		
+	
 		return "LoginAndRegister/roleSelect";
 	}
 

@@ -40,7 +40,7 @@
             <div class="topCards">
               <div class="row">
 
-                <div class="col-12 mt-5">
+                <div class="col-12 mt-2">
                   <div class="row d-flex justify-content-around">
 
                     <div class="col-md-5 col-lg-2 mb-4">

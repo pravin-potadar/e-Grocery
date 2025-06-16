@@ -59,8 +59,8 @@
             <div class="row">
               <div class=" sidebar col-2 max-vh-100 min-vh-100  bg-gray">
                 <div class=" col-12">
-                  <div class="ms-3 mt-4">
-                    <div class="ms-1 mt-5 col-12 row">
+                  <div class="ms-3 mt-1">
+                    <div class="ms-1 mt-1 col-12 row">
                       <button class="sidBarBtn dashboard row" data-href="dashboard">
                         <i class="siderbarIcon col-3 d-flex align-items-center fa-solid fa-house"></i>
                         <i class="col-9 d-inline align-items-center ">Dashbord</i>

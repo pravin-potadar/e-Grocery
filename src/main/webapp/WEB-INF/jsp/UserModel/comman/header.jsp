@@ -65,7 +65,7 @@
                         <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                             <ul class="navbar-nav  mb-5  mb-lg-0">
                                 <li class="nav-item">
-                                    <a class="ms-4 nav-link active" aria-current="page" href="/">Home</a>
+                                    <a class="ms-4 nav-link active" aria-current="page" href="index">Home</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="ms-4 nav-link active" aria-current="page" href="shop">Shop</a>
@@ -83,16 +83,25 @@
 
                             </ul>
                         </div>
-                        <div class=" justify-content-end">
+                        <div class="justify-content-end">
                             <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="ms-2 nav-link active" aria-current="page" href="UserProfile"><img class="navbarUserProfile" src="" alt=""></a>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle ms-2" href="#" id="userDropdown" role="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        <img class="navbarUserProfile" src="path/to/user/profile.jpg" alt="User"
+                                            style="width: 50px; height: 50px; border-radius: 50%;">
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                        <li><a class="dropdown-item" href="UserProfile">Profile</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="logout">Logout</a></li>
+                                    </ul>
                                 </li>
-
-
                             </ul>
-
                         </div>
+
 
                     </div>
                 </nav>

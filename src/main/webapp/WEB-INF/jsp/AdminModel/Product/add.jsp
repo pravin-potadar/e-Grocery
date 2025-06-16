@@ -31,7 +31,7 @@
 
 				<jsp:include page="../header.jsp"></jsp:include>
 
-				<div class="main col-12" style="position: relative; height: 100vh; overflow: hidden">
+				<div class="main col-10" style="position: relative; height: 100vh; overflow: hidden">
 					<div class="container-fluid">
 						<div class="col-12 mt-5">
 							<h1>Add Product</h1>

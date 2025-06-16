@@ -22,27 +22,27 @@ body {
 }
 
 
+/* Category code  */
 
-.categoryProducts {
-    /* border: 2px solid black; */
-    height: 100px;
-    border-radius: 50%;
-    background: #8d86868a;
-}
+ .category-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover; /* Ensures image fills the circle without distortion */
+    border-radius: 50%; /* Makes it a circle */
+    border: 3px solid #28a745;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
 
-.categoryProducts img {
-    width: 70%;
-    margin-top: 8px;
-    height: 80px;
-}
+  .category-img:hover {
+    transform: scale(1.05);
 
-.categoryHeader h2,
-.shopHeaderName {
-    font-family: "Borel", cursive;
-    font-weight: 900;
-    font-style: italic;
-    font-size: xxx-large;
-}
+
+
+
+
+
+    /* Shop Code */
 
 .shopCard {
     background-color: #fff;
@@ -107,6 +107,9 @@ body {
 
 
 
+
+/* footer code */
+
 .footer {
     background-color: #f8f9fa;
     padding: 40px 20px;
@@ -157,14 +160,14 @@ body {
 
 
 
-/* General reset & improvements */
+/* General reset & improvements
 body {
     padding-top: 60px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+} */
 
 /* Footer Styling */
-.footer {
+/* .footer {
     background-color: #f8f9fa;
     padding: 40px 0;
     border-top: 1px solid #dee2e6;
@@ -193,10 +196,10 @@ body {
 .footer-link:hover {
     color: #198754;
     text-decoration: underline;
-}
+} */
 
 /* Shop Card Buttons */
-.ShopCardBuyNow {
+/* .ShopCardBuyNow {
     border: none;
     background-color: #198754;
     color: white;
@@ -209,25 +212,6 @@ body {
 
 .ShopCardBuyNow:hover {
     background-color: #146c43;
-}
+} */
 
-/* Category Image Styling */
-.categoryProducts img {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-    /* background-color: #f1f1f1; */
-    border-radius: 10px;
-    padding: 8px;
-}
 
-.categoryHeader h2 {
-    color: #198754;
-    font-weight: bold;
-}
-
-/* Carousel captions */
-.carousel-caption h2 {
-    color: #198754;
-    font-weight: bold;
-}

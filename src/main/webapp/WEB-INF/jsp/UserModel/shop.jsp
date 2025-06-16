@@ -162,9 +162,11 @@
                 </div>
             </div> -->
 
-                <div class="mt-5 shopArea container-fluid row">
                     <!-- Sidebar with Filters -->
-                    <div class="col-md-3 filterSidebar p-4">
+
+                <div class="mt-5 shopArea container-fluid row">
+                    
+                    <!-- <div class="col-md-3 filterSidebar p-4">
                         <h4 class="text-center">Filters</h4>
                         <hr>
                         <div class="filterSection">
@@ -189,15 +191,15 @@
                                 <option value="popularity">Popularity</option>
                             </select>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- Products Section -->
-                    <div class="col-md-9">
+                    <div class="col-12">
                         <div class="text-center shopHeader">
                             <h2 class="shopHeaderName">Grocery Products</h2>
                         </div>
 
-                        <div class="mt-5 row justify-content-start">
+                        <div class="mt-5 row justify-content-evenly">
                             <!-- Product Cards (Repeat as needed) -->
 
                             <c:forEach var="product" items="${listOfProducts}">

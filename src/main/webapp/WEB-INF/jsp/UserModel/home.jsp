@@ -6,14 +6,14 @@
 		<html>
 
 		<head>
-			
+
 
 		</head>
 
 		<body>
 
 
-			
+
 
 			<jsp:include page="comman/header.jsp"></jsp:include>
 
@@ -74,21 +74,23 @@
 						<h2 class="text-center">categorys</h2>
 					</div>
 					<div class="col-12 row  justify-content-evenly">
-						
+
 
 						<c:forEach var="categories" items="${categories}">
-							<form action="searchCategory" class="col" method="post">
-
+							<form action="searchCategory" method="post" class="col">
 								<input type="hidden" name="searchCategoryId" value="${categories.id}">
-
-								<button type="submit" class="categoryProducts d-flex justify-content-center mt-2">
-									<img class="p-2" src="resources/AdminModel/img/Category/${categories.imageUrl}"
-										alt="${categories.name}">
-								</button>
-
-								<p class="d-flex mt-2 text-center word-wrap justify-content-center">${categories.name}</p>
+								<div class="CategoryShowTable">
+									<button type="submit" class="col-12 border border-none rounded-circle">
+										<img class="rounded-circle img-fluid category-img"
+											src="resources/AdminModel/img/Category/${categories.imageUrl}"
+											alt="${categories.name}">
+									</button>
+									<p class="col-12 d-flex mt-2 text-center word-wrap justify-content-center">
+										${categories.name}</p>
+								</div>
 							</form>
 						</c:forEach>
+
 
 					</div>
 				</div>
@@ -106,40 +108,47 @@
 
 									<div class="mt-5 row justify-content-evenly">
 
-										
+
 
 										<c:forEach var="product" items="${listOfProducts}">
-											<div id="singleProduct" class="col-2 shopCard d-flex justify-content-center align-items-center">
-												<div class="p-3">
-													<div class="d-flex justify-content-center shopImg">
-														<img src="resources/AdminModel/img/Products/${product.imageUrl}"
-															alt="${product.name}">
 
-													</div>
-													<div class="shopTital">
-														<p>${product.name}</p>
-													</div>
-													<div class="shopDiscription">
-														<p class=" word-wrap  text-wrap">${product.description}</p>
-													</div>
-													<div class="shopBtn mt-2">
-														<div class="row">
-															<div class="col-12">
-																<p>Price: ${product.price} &#8377;</p>
-															</div>
-															<div class="col-12">
-																<form class="row"
-																	action="onClickProductAndShowDatails${product.id}">
-																	<input type="submit" class="col-12 ShopCardBuyNow"
-																		value="Buy"></input>
+											<div class="p-5 mt-4 justify-content-evenly  col-xxl-3 col-xl-3 col-md-6 col-sm-12 mb-12">
+												<div id="singleProduct"
+													class="col shopCard d-flex justify-content-center align-items-center ">
+													<div class=" p-2">
+														<div class="d-flex justify-content-center shopImg">
+															<img src="resources/AdminModel/img/Products/${product.imageUrl}"
+																alt="${product.name}">
+
+														</div>
+														<div class="shopTital">
+															<p>${product.name}</p>
+														</div>
+														<div class="shopDiscription">
+															<p class=" word-wrap  text-wrap">${product.description}</p>
+														</div>
+														<div class="shopBtn mt-2">
+															<div class="row">
+																<div class="col-12">
+																	<p>Price: ${product.price} &#8377;</p>
+																</div>
+																<div class="col-12">
+																	<form class="row justify-content-evenly"
+																		action="onClickProductAndShowDatails${product.id}">
+																		<input type="submit"
+																			class="col-10 ShopCardBuyNow"
+																			value="Buy"></input>
 
 
-																</form>
+																	</form>
+																</div>
 															</div>
 														</div>
 													</div>
 												</div>
+
 											</div>
+
 										</c:forEach>
 
 									</div>
@@ -151,12 +160,12 @@
 				</div>
 			</div>
 
-			
+
 
 		</body>
 
 		<jsp:include page="comman/footer.jsp"></jsp:include>
 
-	
+
 
 		</html>
