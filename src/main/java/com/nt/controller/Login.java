@@ -1,5 +1,6 @@
 package com.nt.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +26,12 @@ public class Login {
 
 	@PostMapping("/userLogin")
 	public String userLogin(@RequestParam String email, @RequestParam String password, Model model,
-			HttpSession session) {
+			HttpServletRequest reqSession) {
 		
-		System.out.println(session.getAttribute(email));
+			HttpSession session = reqSession.getSession(true);
+			
+			session.setAttribute("emailsUser", email);
+			session.setAttribute("UserPassword", password);
 
 		Users currentUser = userLoginService.userLoginService(email);
 
@@ -36,7 +40,6 @@ public class Login {
 			
 			
 			
-			session.setAttribute("email", email);
 			session.setAttribute("role", currentUser.getRole());
 
 			// Redirect to appropriate page

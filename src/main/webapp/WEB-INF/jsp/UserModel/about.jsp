@@ -90,7 +90,7 @@
                     <!-- Section 2: Company Info -->
                     <div class="row align-items-center mb-5">
                         <div class="col-md-6">
-                            <img src="https://via.placeholder.com/600x400" alt="Company Image" class="img-fluid rounded-3 shadow-lg">
+                            <img src="https://www.collegebatch.com/static/clg-gallery/fabtech-technical-campus-solapur-283245.jpg" alt="Company Image" class="img-fluid rounded-3 shadow-lg">
                         </div>
                         <div class="col-md-6">
                             <h4 class="fw-bold">Our Mission</h4>
@@ -108,7 +108,9 @@
                         <!-- Team Member 1 -->
                         <div class="col-md-4">
                             <div class="team-card shadow-lg mb-4">
-                                <img src="https://via.placeholder.com/200" alt="Team Member" class="img-fluid rounded-circle mx-auto mt-3">
+                               <div class="d-flex justify-content-center">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/219/219983.png" alt="Team Member" class="img-fluid rounded-circle mx-auto mt-3  ">
+                                </div>
                                 <div class="card-body text-center">
                                     <h5 class="card-title">Pravin Potadar</h5>
                                     <p class="card-text text-muted">CEO & Co-Founder</p>
@@ -119,7 +121,9 @@
                         <!-- Team Member 2 -->
                         <div class="col-md-4">
                             <div class="team-card shadow-lg mb-4">
-                                <img src="https://via.placeholder.com/200" alt="Team Member" class="img-fluid rounded-circle mx-auto mt-3">
+                                <div class="d-flex justify-content-center">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/219/219983.png" alt="Team Member" class="img-fluid rounded-circle mx-auto mt-3  ">
+                                </div>
                                 <div class="card-body text-center">
                                     <h5 class="card-title">Tirth Swami</h5>
                                     <p class="card-text text-muted">CTO & Co-Founder</p>
@@ -130,7 +134,10 @@
                         <!-- Team Member 3 -->
                         <div class="col-md-4">
                             <div class="team-card shadow-lg mb-4">
-                                <img src="https://via.placeholder.com/200" alt="Team Member" class="img-fluid rounded-circle mx-auto mt-3">
+
+                                <div class="d-flex justify-content-center">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/219/219983.png" alt="Team Member" class="img-fluid rounded-circle mx-auto mt-3  ">
+                                </div>
                                 <div class="card-body text-center">
                                     <h5 class="card-title">Vaibhav Nikam</h5>
                                     <p class="card-text text-muted">Marketing Director</p>
