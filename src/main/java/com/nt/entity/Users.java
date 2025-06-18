@@ -5,12 +5,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Setter
 @Getter
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class Users {
 
 	@Id
@@ -28,28 +32,6 @@ public class Users {
 	private String mobileNo;
 	
 	private String role;
-
-	public Users() {
-		
-	}
-
-	public Users(int id, String firstName, String lastName, String email, String password, String dob, String userImage,
-			String address, String areaPinCode, String mobileNo, String role) {
-		super();
-		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.password = password;
-		this.dob = dob;
-		this.userImage = userImage;
-		this.address = address;
-		this.areaPinCode = areaPinCode;
-		this.mobileNo = mobileNo;
-		this.role = role;
-	}
-	
-	
 
 	
 	

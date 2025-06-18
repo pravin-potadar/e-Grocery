@@ -22,7 +22,9 @@ $(document).ready(function () {
         $("#TransactionsSubPart").slideToggle(200);
     });
 
-
+     $("#blog").on("click", function () {
+        $("#blogsSubPart").slideToggle(200);
+    });
 
 
 

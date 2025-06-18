@@ -1,56 +1,69 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!doctype html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
-<head>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 
-</head>
+	<!doctype html>
+	<html lang="en">
 
-<body>
+	<head>
 
+	</head>
 
-
-	<jsp:include page="../header.jsp"></jsp:include>
+	<body>
 
 
-	<div class="main col-10" style="position: relative;">
-		<div class="container-fluid">
-			<div class="col-12 mt-5">
-				<h1>Add Blog</h1>
-				<form action="addCategory" method="post"
-					enctype="multipart/form-data" class="mt-4">
-					<div class="mb-3">
-						<label for="name" class="form-label">Category Name</label> <input
-							type="text" id="name" name="categoryName" class="form-control"
-							required>
-					</div>
 
-					<div class="mb-3">
-						<label for="image" class="form-label">Upload Image</label> <input
-							type="file" id="image" name="categoryImage" class="form-control"
-							accept="image/*" required>
-					</div>
+		<jsp:include page="../header.jsp"></jsp:include>
 
-					<button type="submit" class="btn btn-success">Create
-						Category</button>
-				</form>
+
+		<div class="main col-10" style="position: relative;">
+			<div class="container-fluid">
+				<h2 class="mt-5">Blog List</h2>
+				<table class="table table-bordered table-striped mt-3">
+					<thead class="table-dark">
+						<tr>
+							<th>Title</th>
+							<th>Description</th>
+							<th>Conclusion</th>
+							<th>Image</th>
+							<th>Status</th>
+							<th>Date</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="blog" items="${blogsData}">
+							<tr>
+								<td>${blog.title}</td>
+								<td>${blog.description}</td>
+								<td>${blog.conclusion}</td>
+								<td>
+									<img src="resources/AdminModel/img/BlogImges/${blog.imageUrl}"
+										width="100px" height="80px" alt="${blog.imageUrl}">
+								</td>
+								<td>${blog.status}</td>
+								<td>${blog.date}</td>
+								<td>
+									<a href="edit-blog/${blog.id}" class="btn btn-sm btn-primary">Edit</a>
+									<a href="delete-blog/${blog.id}" class="btn btn-sm btn-danger"
+										onclick="return confirm('Are you sure you want to delete this blog?');">Delete</a>
+								</td>
+							</tr>
+						</c:forEach>
+						
+					</tbody>
+				</table>
 			</div>
 		</div>
-	</div>
-	</div>
-	</div>
-	</div>
-	</div>
 
-</body>
+	</body>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+		crossorigin="anonymous"></script>
 
-    <script src="resources/AdminModel/js/dashboard.js"></script>
+	<script src="resources/AdminModel/js/dashboard.js"></script>
 
 
 
-</html>
+	</html>
