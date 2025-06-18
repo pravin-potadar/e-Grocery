@@ -14,34 +14,68 @@
 	<jsp:include page="../header.jsp"></jsp:include>
 
 
-	<div class="main col-10" style="position: relative;">
-		<div class="container-fluid">
-			<div class="col-12 mt-5">
-				<h1>Add Blog</h1>
-				<form action="addCategory" method="post"
-					enctype="multipart/form-data" class="mt-4">
-					<div class="mb-3">
-						<label for="name" class="form-label">Category Name</label> <input
-							type="text" id="name" name="categoryName" class="form-control"
-							required>
-					</div>
+	 <div class="main col-10" style="position: relative">
+      <div class="container-fluid">
+        <div class="col-12 mt-2">
+          <h1>Update Blog</h1>
+          <form
+            action="update-blog"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            <input type="hidden" name="id" value="${blog.id}" />
 
-					<div class="mb-3">
-						<label for="image" class="form-label">Upload Image</label> <input
-							type="file" id="image" name="categoryImage" class="form-control"
-							accept="image/*" required>
-					</div>
+            <div class="mb-3">
+              <input
+                type="file"
+                class="form-control mt-2"
+                name="imageUrl"
+                id="blogImage"
+              />
+            </div>
 
-					<button type="submit" class="btn btn-success">Create
-						Category</button>
-				</form>
-			</div>
-		</div>
-	</div>
-	</div>
-	</div>
-	</div>
-	</div>
+            <div class="mb-3">
+              <input
+                placeholder="Enter The Blog Title"
+                type="text"
+                class="form-control"
+                name="title"
+                id="blogTitle"
+                value="${blog.title}"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <!-- <label for="blogDescription" class="form-label"
+                >Description</label -->
+
+              <textarea
+                placeholder="Enter The Blog Description"
+                class="form-control"
+                name="description"
+                id="blogDescription"
+                rows="5"
+                required
+              ></textarea>
+            </div>
+
+            <div class="mb-3">
+              <!-- <label for="blogMore" class="form-label">See More</label> -->
+              <textarea
+                placeholder="Enter your Conclusion"
+                class="form-control"
+                name="conclusion"
+                id="blogMore"
+                rows="3"
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-success">Update Blog</button>
+          </form>
+        </div>
+      </div>
+    </div>
 
 </body>
 

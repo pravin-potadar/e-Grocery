@@ -1,55 +1,46 @@
 package com.nt.entity;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
 @Entity
 @Setter
 @Getter
-@NoArgsConstructor
 @AllArgsConstructor
-public class Product {
+@NoArgsConstructor
 
+@Table(name = "blogs")
+public class Blog {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-
-	private String name;
-
-	private String brand;
-
-	private String description;
-
-	private String price;
-
-	private String discount;
-
-	private String stock;
-
-	private String unitType;
-
-	private int unitNum;
-
-	private String status;
-
+	
+	private int userId;
+	
 	private String imageUrl;
-
-	private LocalDate createdDate;
-
-	private LocalTime createdTime;
-
-	private int categoryId;
-
+	
+	private String title;
+	
+	private String description;
+	
+	private String conclusion;
+	
+	private String status;
+	
+	private LocalDate date;
+	
 	
 
 }

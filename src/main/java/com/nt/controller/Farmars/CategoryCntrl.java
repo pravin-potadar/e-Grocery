@@ -1,4 +1,4 @@
-package com.nt.controller;
+package com.nt.controller.Farmars;
 
 import java.util.List;
 
@@ -52,10 +52,10 @@ public class CategoryCntrl {
 
 	@PostMapping("addCategory")
 	public String addCategory(@RequestParam String categoryName, @RequestParam MultipartFile categoryImage) {
-
-		System.out.println(categoryName);
-
-		System.out.println(categoryImage);
+//
+//		System.out.println(categoryName);
+//
+//		System.out.println(categoryImage);
 
 		boolean data = categoryService.addCategory(categoryName, categoryImage);
 

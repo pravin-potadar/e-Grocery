@@ -1,4 +1,4 @@
-package com.nt.controller;
+package com.nt.controller.userShow;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

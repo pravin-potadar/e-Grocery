@@ -34,6 +34,8 @@ public class Login {
 			session.setAttribute("UserPassword", password);
 
 		Users currentUser = userLoginService.userLoginService(email);
+		
+		session.setAttribute("userId", currentUser.getId());
 
 		if (currentUser != null && password.equals(currentUser.getPassword())) {
 

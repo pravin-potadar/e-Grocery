@@ -1,4 +1,4 @@
-package com.nt.controller;
+package com.nt.controller.userShow;
 
 import java.util.List;
 
