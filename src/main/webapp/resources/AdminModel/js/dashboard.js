@@ -26,6 +26,9 @@ $(document).ready(function () {
         $("#blogsSubPart").slideToggle(200);
     });
 
+     $("#Farmars").on("click", function () {
+        $("#FarmarsSubPart").slideToggle(200);
+    });
 
 
 

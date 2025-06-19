@@ -1,5 +1,7 @@
 package com.nt.dao;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -12,7 +14,7 @@ public interface CategoryRepository extends JpaRepository<Category, Integer> {
 
 	List findByName(String categorySearchData);
 
-	Category findById(int id);
+	Optional<Category> findById(int id);
 
 
 }

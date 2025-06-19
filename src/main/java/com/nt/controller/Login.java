@@ -25,38 +25,34 @@ public class Login {
 	}
 
 	@PostMapping("/userLogin")
-	public String userLogin(@RequestParam String email, @RequestParam String password, Model model,
-			HttpServletRequest reqSession) {
-		
-			HttpSession session = reqSession.getSession(true);
-			
-			session.setAttribute("emailsUser", email);
-			session.setAttribute("UserPassword", password);
+	public String userLogin(@RequestParam String email,
+	                        @RequestParam String password,
+	                        Model model,
+	                        HttpServletRequest request) {
 
-		Users currentUser = userLoginService.userLoginService(email);
-		
-		session.setAttribute("userId", currentUser.getId());
+	    HttpSession session = request.getSession(true);
 
-		if (currentUser != null && password.equals(currentUser.getPassword())) {
+	    Users currentUser = userLoginService.userLoginService(email);
 
-			
-			
-			
-			session.setAttribute("role", currentUser.getRole());
+	    if (currentUser != null && password.equals(currentUser.getPassword())) {
+	        session.setAttribute("emailsUser", email);
+	        session.setAttribute("UserPassword", password); // Avoid this in real apps
+	        session.setAttribute("userId", currentUser.getId());
+	        session.setAttribute("role", currentUser.getRole());
 
-			// Redirect to appropriate page
-			if ("user".equalsIgnoreCase(currentUser.getRole())) {
-				return "redirect:/index";
-			} else if ("seller".equalsIgnoreCase(currentUser.getRole())) {
-				return "redirect:/dashboard";
-			}
-		}
+	        switch (currentUser.getRole().toLowerCase()) {
+	            case "user":
+	                return "redirect:/index";
+	            case "seller":
+	                return "redirect:/dashboard";
+	            case "owner":
+	                return "redirect:/owner-dashboard";
+	        }
+	    }
 
-		// Handle login failure
-		model.addAttribute("userEmail", email);
-		model.addAttribute("userPass", password);
-		
-		model.addAttribute("errorMsg", "Invalid email or password");
-		return "LoginAndRegister/Login";
+	    model.addAttribute("userEmail", email);
+	    model.addAttribute("errorMsg", "Invalid email or password");
+	    return "LoginAndRegister/Login";
 	}
+
 }

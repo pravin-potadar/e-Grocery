@@ -37,6 +37,9 @@
 
 									<form action="updateCategory" method="POST" enctype="multipart/form-data"
 										class="mt-4">
+
+										<input type="hidden" name="id" value="${presentCategory.id}">
+
 										<div class="mb-3">
 											<label for="name" class="form-label">Category Name</label> 
 											<input type="text" id="name" name="name" class="form-control" value="${presentCategory.name}" required>

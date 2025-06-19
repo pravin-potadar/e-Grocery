@@ -108,14 +108,24 @@ public class CategoryCntrl {
 
 	
 	
-	@PostMapping("updateCategory")
-	public String updateCategory(@ModelAttribute Category updateCategory) {
-		
-		categoryService.updateCategory(updateCategory);
-		
-		return "redirect:listCategory";
-		
+//	@PostMapping("updateCategory")
+//	public String updateCategory(@ModelAttribute Category updateCategory, @RequestParam MultipartFile image) {
+//		
+//		categoryService.updateCategory(updateCategory, image);
+//		
+//		return "redirect:listCategory";
+//		
+//	}
+	
+	
+	@PostMapping("/updateCategory")
+	public String updateCategory(@ModelAttribute Category category,
+	                             @RequestParam("image") MultipartFile image) {
+	    System.out.println("Updating Category ID: " + category.getId()); // <-- Debug
+	    categoryService.updateCategory(category, image);
+	    return "redirect:listCategory";
 	}
+
 	
 	
 	

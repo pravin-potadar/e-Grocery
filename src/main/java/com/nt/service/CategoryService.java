@@ -7,6 +7,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -17,81 +18,98 @@ import org.springframework.web.multipart.MultipartFile;
 import com.nt.dao.CategoryRepository;
 import com.nt.entity.Category;
 
-import antlr.collections.List;
-
 @Service
 public class CategoryService {
-	
+
     @Autowired
     private CategoryRepository categoryRepository;
 
-    private static final String UPLOAD_DIR = "Q:\\SPRING\\Spring WebApplication\\e-Grocery\\src\\main\\webapp\\resources\\AdminModel\\img\\Category\\"; // Change path as needed
+    private static final String UPLOAD_DIR = "Q:\\SPRING\\Spring WebApplication\\e-Grocery\\src\\main\\webapp\\resources\\AdminModel\\img\\Category\\";
 
+    // Save image file and return its new unique name
+    private String saveImageFile(MultipartFile imageFile) throws IOException {
+        File uploadDir = new File(UPLOAD_DIR);
+        if (!uploadDir.exists()) {
+            uploadDir.mkdirs();
+        }
+
+        String originalFilename = imageFile.getOriginalFilename();
+        String fileName = UUID.randomUUID() + "_" + (originalFilename != null ? originalFilename.replaceAll("\\s+", "_") : "default.png");
+        Path path = Paths.get(UPLOAD_DIR + fileName);
+        Files.write(path, imageFile.getBytes());
+
+        return fileName;
+    }
+
+    // Add new category
     public boolean addCategory(String categoryName, MultipartFile categoryImage) {
-    	
-    	
         try {
-        	
-        	System.out.println(categoryName);
-            // Create directory if not exists
-            File uploadDir = new File(UPLOAD_DIR);
-            if (!uploadDir.exists()) {
-                uploadDir.mkdirs();
-            }
+            String fileName = saveImageFile(categoryImage);
 
-            // Generate a unique file name
-            String fileName = UUID.randomUUID() + "_" + categoryImage.getOriginalFilename();
-            String filePath = UPLOAD_DIR + fileName;
-
-            // Save file
-            Path path = Paths.get(filePath);
-            Files.write(path, categoryImage.getBytes());
-
-            // Create Category object with file path
-            Category category = new Category(
-                categoryName,
-                fileName, // Save path in DB
-                LocalDate.now(),
-                LocalTime.now()
-            );
-
+            Category category = new Category(categoryName, fileName, LocalDate.now(), LocalTime.now());
             categoryRepository.save(category);
             return true;
         } catch (IOException e) {
             throw new RuntimeException("Error saving category image", e);
         }
     }
-    
-    
-//    list of category 
-    
-    
-    public   java.util.List<Category> getAllCategories() {
-        return  categoryRepository.findAll();
+
+    // Get all categories
+    public List<Category> getAllCategories() {
+        return categoryRepository.findAll();
     }
 
-
-
-    
-    
-    
+    // Get category by ID
     public Category getCategoryFindById(int id) {
-    	Category categoryData = (Category) categoryRepository.findById(id);
-    	
-    	System.out.println("find using id" + categoryData.getName());
-    	
-    	return categoryData;
+        Optional<Category> optional = categoryRepository.findById(id);
+        if (optional.isPresent()) {
+            System.out.println("find using id " + optional.get().getName());
+            return optional.get();
+        } else {
+            System.err.println("Category not found with ID: " + id);
+            return null;
+        }
+    }
 
-	}
+    // Update existing category
+    public boolean updateCategory(Category updateCategory, MultipartFile image) {
+        try {
+            Optional<Category> optional = categoryRepository.findById(updateCategory.getId());
+            if (!optional.isPresent()) {
+                System.err.println("Category not found for update with ID: " + updateCategory.getId());
+                return false;
+            }
 
+            Category existing = optional.get();
+            existing.setName(updateCategory.getName());
+            existing.setCreatedDate(LocalDate.now());
+            existing.setCreatedTime(LocalTime.now());
 
-	public void updateCategory(Category updateCategory) {
-		
-		categoryRepository.save(updateCategory);
-		
-	}
-    
-    
-    
-    
+            // Only replace image if a new one is uploaded
+            if (image != null && !image.isEmpty()) {
+
+                // Delete old image from disk
+                String oldImagePath = UPLOAD_DIR + existing.getImageUrl();
+                File oldImageFile = new File(oldImagePath);
+                if (oldImageFile.exists()) {
+                    oldImageFile.delete(); // delete old image
+                }
+
+                // Save new image
+                String fileName = UUID.randomUUID() + "_" + image.getOriginalFilename().replaceAll("\\s+", "_");
+                Path path = Paths.get(UPLOAD_DIR + fileName);
+                Files.write(path, image.getBytes());
+
+                // Update image URL in DB
+                existing.setImageUrl(fileName);
+            }
+
+            categoryRepository.save(existing);
+            return true;
+
+        } catch (IOException e) {
+            throw new RuntimeException("Error updating category", e);
+        }
+    }
+
 }
