@@ -56,7 +56,7 @@
 								<thead class="table-dark"
 									style="position: sticky; top: 0; z-index: 1; background-color: #343a40;">
 									<tr>
-										<th>ID</th>
+										<!-- <th>ID</th> -->
 										<th>Category Name</th>
 										<th>Image</th>
 										<th>Date</th>
@@ -67,7 +67,7 @@
 								<tbody>
 									<c:forEach var="category" items="${categories}">
 										<tr>
-											<td>${category.id}</td>
+											<!-- <td>${category.id}</td> -->
 											<td>${category.name}</td>
 											<td><img src="resources/AdminModel/img/Category/${category.imageUrl}"
 													width="50" height="50"></td>
@@ -76,7 +76,7 @@
 											<td>
 												<!-- <a href="listSearchCategory-${category.id}"><span class="ms-2"><i class="fa-solid fa-pen-to-square"></i></span></a>  -->
 
-												<form class="d-inline" action="listSearchCategory" method="get">
+												<!-- <form class="d-inline" action="listSearchCategory" method="get">
 
 												
 
@@ -88,9 +88,11 @@
 													
 
 
-												</form>
+												</form> -->
 
-												<span class="ms-4"><i class="fa-solid fa-trash"></i></span>
+												<span class="ms-4"><a href="listSearchCategory?id=${category.id}"><i class="fa-solid fa-pen-to-square"></i></a></span>
+
+												<span class="ms-4"><a href=""><i class="fa-solid fa-trash"></i></a></i></span>
 											</td>
 										</tr>
 									</c:forEach>

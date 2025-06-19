@@ -27,7 +27,7 @@
 
     <body>
 
-      <jsp:include page="./header.jsp"></jsp:include>
+      <jsp:include page="header.jsp"></jsp:include>
 
 
 
@@ -46,7 +46,7 @@
                     <div class="col-md-5 col-lg-2 mb-4">
                       <div class="row">
                         <div class="col-12 headerCard">
-                          <h5 class="d-inline">Revenue</h5>
+                          <h5 class="d-inline">  Revenue</h5>
                           <h5 class="ms-2 fa-solid fa-money-bill-wave"></h5>
                         </div>
                         <hr width="80%">
@@ -114,6 +114,29 @@
                         <hr class="mt-2">
                       </div>
                     </div>
+                    
+                    <div class="col-md-5 col-lg-2 mb-4">
+                      <div class="row">
+                        <div class="col-12 headerCard">
+                          <h5 class="d-inline">Total Farmars</h5>
+                          <h5 class="fa-solid fa-cart-shopping"></h5>
+                        </div>
+                        <hr width="80%">
+                        <div class="col-12 mainCard ">
+                          <div class="row">
+                            <div class="col-6">
+                              <span>1000 </span>
+                            </div>
+                            <div class="col-6">
+                              <span class="fa-solid fa-arrow-up"></span>
+                              <span class="fa-solid fa-arrow-down"></span>
+                            </div>
+                          </div>
+
+                        </div>
+                        <hr class="mt-2">
+                      </div>
+                    </div>
 
                     <div class="col-md-5 col-lg-2 mb-4">
                       <div class="row">
@@ -137,6 +160,8 @@
                         <hr class="mt-2">
                       </div>
                     </div>
+                    
+                    
 
                   </div>
                 </div>

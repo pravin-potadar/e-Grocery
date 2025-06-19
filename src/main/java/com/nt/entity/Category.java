@@ -28,6 +28,8 @@ public class Category {
 
     private LocalDate createdDate;
     private LocalTime createdTime;
+    
+    private String status;
 	
     
     public Category() {
@@ -43,7 +45,9 @@ public class Category {
 		this.createdDate = createdDate;
 		this.createdTime = createdTime;
 	}
-    
+
+
+	
     
     
     

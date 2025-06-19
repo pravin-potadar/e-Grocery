@@ -7,7 +7,7 @@
     <head>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <title>Dashboard</title>
+      <title>Owner Dashboard</title>
 
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
@@ -61,7 +61,7 @@
                 <div class=" col-12">
                   <div class="ms-3 mt-1">
                     <div class="ms-1 mt-1 col-12 row">
-                      <button class="sidBarBtn dashboard row" data-href="dashboard">
+                      <button class="sidBarBtn dashboard row" data-href="owner-dashboard">
                         <i class="siderbarIcon col-3 d-flex align-items-center fa-solid fa-house"></i>
                         <i class="col-9 d-inline align-items-center ">Dashbord</i>
                       </button>
@@ -71,13 +71,13 @@
                         <button id="Category" class=" sidBarBtn col-12 row">
                           <i
                             class="siderbarIcon  col-3 d-flex align-items-center fa-solid fa-solid fa-clipboard-list"></i>
-                          <i class="col-9 d-inline align-items-center">Category</i>
+                          <i class="col-9 d-inline align-items-center">Categorys</i>
                         </button>
                         <div id="CategorySubPart" class="row ms-3 subList">
-                          <a href="category-add" class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-plus"></i><i
+                        <!--   <a href="category-add" class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-plus"></i><i
                               class="ms-3">Add</i></a>
                           <a href="category-update" class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-pen-to-square"></i><i
-                              class="ms-3">update</i></a>
+                              class="ms-3">update</i></a> -->
                           <a href="listCategory" class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-table-list"></i><i
                               class="ms-3">List</i></a>
                         </div>
@@ -88,13 +88,13 @@
                         <button id="product" class=" sidBarBtn col-12 row">
                           <i
                             class="siderbarIcon col-3 d-flex align-items-center fa-solid fa-solid fa-solid fa-cart-shopping"></i>
-                          <i class="col-9 d-inline align-items-center">Product</i>
+                          <i class="col-9 d-inline align-items-center">Products</i>
                         </button>
                         <div id="productSubPart" class="row ms-3 subList">
-                          <a href="product-add" class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-plus"></i><i
+                         <!--  <a href="product-add" class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-plus"></i><i
                               class="ms-3">Add</i></a>
                           <a href="product-update" class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-pen-to-square"></i><i
-                              class="ms-3">update</i></a>
+                              class="ms-3">update</i></a> -->
                           <a href="product-list" class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-table-list"></i><i
                               class="ms-3">List</i></a>
                         </div>
@@ -108,10 +108,10 @@
                           <i class="col-9 d-inline align-items-center">Blogs</i>
                         </button>
                         <div id="blogsSubPart" class="row ms-3 subList">
-                          <a href="blog-add" class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-plus"></i><i
+                         <!--  <a href="blog-add" class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-plus"></i><i
                               class="ms-3">Add</i></a>
                           <a href="blog-update" class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-pen-to-square"></i><i
-                              class="ms-3">update</i></a>
+                              class="ms-3">update</i></a> -->
                           <a href="blogs-list" class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-table-list"></i><i
                               class="ms-3">List</i></a>
                         </div>
@@ -134,7 +134,7 @@
                         </div>
                       </div>
                     </div>
-                    <!-- <div class="row mt-3">
+                    <div class="row mt-3">
                       <div class="Customers">
                         <button id="Customers" class=" sidBarBtn col-12 row">
                           <i
@@ -142,16 +142,36 @@
                           <i class="col-9 d-inline align-items-center">Customers</i>
                         </button>
                         <div id="CustomersSubPart" class="row ms-3 subList">
-                          <a class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-plus"></i><i class="ms-3">Customer Reviews</i>
+                          <!-- <a class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-plus"></i><i class="ms-3">Customer Reviews</i>
                           </a>
                           <a class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-pen-to-square"></i><i class="ms-3">Customer
-                              Queries</i></a>
+                              Queries</i></a> -->
                           <a class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-table-list"></i><i class="ms-3">All Customers</i>
                           </a>
                         </div>
                       </div>
-                    </div> -->
+                    </div> 
+                    
                     <div class="row mt-3">
+                      <div class="Customers">
+                        <button id="Farmars" class=" sidBarBtn col-12 row">
+                          <i
+                            class="siderbarIcon col-3 d-flex align-items-center fa-solid fa-solid fa-solid fa-circle-user"></i>
+                          <i class="col-9 d-inline align-items-center">Farmers</i>
+                        </button>
+                        <div id="FarmarsSubPart" class="row ms-3 subList">
+                          <!-- <a class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-plus"></i><i class="ms-3">Customer Reviews</i>
+                          </a>
+                          <a class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-pen-to-square"></i><i class="ms-3">Customer
+                              Queries</i></a> -->
+                          <a class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-table-list"></i><i class="ms-3">All Farmars</i>
+                          </a>
+                        </div>
+                      </div>
+                    </div> 
+                    
+                    
+                    <!-- <div class="row mt-3">
                       <div class="Transactions">
                         <button id="Transactions" class=" sidBarBtn col-12 row">
                           <i class="siderbarIcon col-3 d-flex align-items-center fa-solid fa-solid fa-solid fa-file-invoice-dollar">
@@ -164,7 +184,7 @@
                           <a class="sidBarAtag col-12 mt-2"><i class="fa-solid fa-table-list"></i><i class="ms-3">Payouts</i></a>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </div>

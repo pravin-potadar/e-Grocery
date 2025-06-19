@@ -12,7 +12,7 @@ public class SessionFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
-        throws IOException, ServletException {
+            throws IOException, ServletException {
 
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
@@ -20,42 +20,46 @@ public class SessionFilter implements Filter {
         String uri = req.getRequestURI();
         HttpSession session = req.getSession(false);
 
-        // Public paths that don’t need login
-        boolean isPublicPath = uri.equals("/") || 
-                               uri.contains("/userLogin") || 
-                               uri.contains("/UserRegister") || 
+        // Public paths that don’t require authentication
+        boolean isPublicPath = uri.equals("/") ||
+                               uri.contains("/userLogin") ||
+                               uri.contains("/UserRegister") ||
                                uri.contains("/userRegisterForm") ||
-                               uri.startsWith("/resources");
+                               uri.startsWith("/resources") ||
+                               uri.contains(".css") || uri.contains(".js") || uri.contains(".png") || uri.contains(".jpg");
 
         if (isPublicPath) {
             chain.doFilter(request, response);
             return;
         }
 
-        // Check if session is active
+        // Session and role check
         if (session == null || session.getAttribute("role") == null) {
             res.sendRedirect("/"); // Redirect to login
             return;
         }
 
-        // Role-based route filtering
         String role = session.getAttribute("role").toString();
 
-        if (uri.contains("dashboard")) {
-            // Only seller can access dashboard
+        // Role-based access control
+        if (uri.contains("/dashboard")) {
             if (!"seller".equalsIgnoreCase(role)) {
-                res.sendRedirect("/"); // Redirect to login
+                res.sendRedirect("/");
                 return;
             }
-        } else if (uri.contains("index")) {
-            // Only user can access index
+        } else if (uri.contains("/index")) {
             if (!"user".equalsIgnoreCase(role)) {
-                res.sendRedirect("/"); // Redirect to login
+                res.sendRedirect("/");
+                return;
+            }
+        } else if (uri.contains("/owner-dashboard")) {
+            if (!"owner".equalsIgnoreCase(role)) {
+                res.sendRedirect("/");
                 return;
             }
         }
 
-        // Pass the request along the filter chain
+        // All checks passed; continue request
         chain.doFilter(request, response);
     }
 }
