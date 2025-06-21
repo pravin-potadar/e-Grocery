@@ -1,3 +1,7 @@
+
+
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -89,6 +93,7 @@
                                     <a class="nav-link dropdown-toggle ms-2" href="#" id="userDropdown" role="button"
                                         data-bs-toggle="dropdown" aria-expanded="false">
                                         <img class="navbarUserProfile" src="path/to/user/profile.jpg" alt="User"
+                                            onerror="this.onerror=null; this.src='https://cdn-icons-png.flaticon.com/512/219/219983.png';"
                                             style="width: 50px; height: 50px; border-radius: 50%;">
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
@@ -101,6 +106,7 @@
                                 </li>
                             </ul>
                         </div>
+
 
 
                     </div>
@@ -272,3 +278,16 @@
         crossorigin="anonymous"></script> -->
 
         </html>
+
+
+
+
+
+
+
+
+
+
+
+
+

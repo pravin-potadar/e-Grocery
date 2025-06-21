@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.nt.entity.Category;
 import com.nt.entity.Product;
 import com.nt.service.CategoryService;
 import com.nt.service.ProductsService;
@@ -28,7 +29,7 @@ public class ProductCntrl {
 	@GetMapping("product-add")
 	public String addProduct(Model model) {
 
-		List<com.nt.entity.Category> categories = categoryService.getAllCategories();
+		List<Category> categories = categoryService.getAllCategories();
 
 		System.out.println(categories);
 

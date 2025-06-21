@@ -1,11 +1,16 @@
 package com.nt.filter;
 
-import javax.servlet.*;
+import java.io.IOException;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
 
 @WebFilter("/*")
 public class SessionFilter implements Filter {
@@ -20,22 +25,26 @@ public class SessionFilter implements Filter {
         String uri = req.getRequestURI();
         HttpSession session = req.getSession(false);
 
-        // Public paths that don’t require authentication
-        boolean isPublicPath = uri.equals("/") ||
-                               uri.contains("/userLogin") ||
-                               uri.contains("/UserRegister") ||
-                               uri.contains("/userRegisterForm") ||
-                               uri.startsWith("/resources") ||
-                               uri.contains(".css") || uri.contains(".js") || uri.contains(".png") || uri.contains(".jpg");
+        // Define all publicly accessible paths (allowed without login)
+        boolean isPublicPath =
+                uri.equals("/") ||
+                uri.contains("/userLogin") ||
+                uri.contains("/UserRegister") ||
+                uri.contains("/userRegisterForm") ||
+                uri.contains("/sellerRegister") ||
+                uri.contains("/role") ||
+                uri.startsWith("/resources") ||
+                uri.contains(".css") || uri.contains(".js") ||
+                uri.contains(".png") || uri.contains(".jpg");
 
         if (isPublicPath) {
             chain.doFilter(request, response);
             return;
         }
 
-        // Session and role check
+        // If not a public path, check if session and role exist
         if (session == null || session.getAttribute("role") == null) {
-            res.sendRedirect("/"); // Redirect to login
+            res.sendRedirect("/"); // Redirect to login page
             return;
         }
 
@@ -59,7 +68,6 @@ public class SessionFilter implements Filter {
             }
         }
 
-        // All checks passed; continue request
         chain.doFilter(request, response);
     }
 }

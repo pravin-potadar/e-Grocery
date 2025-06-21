@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -27,10 +29,20 @@ public class Order {
     private Long orderId;
 
     // User who placed the order
-    private Long userId;
+//    private Long userId;
 
     // Ordered product
-    private Long productId;
+//    private Long productId;
+    
+    
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private Users user;
+
+//    @ManyToOne
+//    @JoinColumn(name = "product_id")
+//    private Product product;
+
 
     private int quantity;
 
@@ -44,6 +56,10 @@ public class Order {
 
     private String status;          // e.g., "Pending", "Confirmed", "Shipped"
     private String paymentStatus;   // e.g., "Paid", "Unpaid", "COD"
+    
+    
+    
+   
 
    
 }

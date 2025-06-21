@@ -5,7 +5,14 @@
 <html>
 <head>
     <title>User Profile - e-Grocery</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
 </head>
 <body>
 
@@ -16,8 +23,19 @@
         <div class="row">
             <!-- Profile Picture -->
             <div class="col-md-3 text-center">
-                <img src="resources/UserModel/img/profile/default-user.png" class="img-fluid rounded-circle mb-3" width="150" alt="Profile">
-                <h5>${user.name}</h5>
+                <img 
+                    src="<c:choose>
+                            <c:when test='${not empty user.userImage}'>
+                                AdminModel/img/users/{user.userImage}
+                            </c:when>
+                            <c:otherwise>
+                                https://cdn-icons-png.flaticon.com/512/219/219983.png
+                            </c:otherwise>
+                         </c:choose>"
+                    class="img-fluid rounded-circle mb-3"
+                    width="150"
+                    alt="Profile">
+                <h5>${user.firstName} ${user.lastName}</h5>
                 <p class="text-muted">${user.email}</p>
             </div>
 
@@ -26,8 +44,10 @@
                 <h4>User Details</h4>
                 <table class="table">
                     <tr><th>Email</th><td>${user.email}</td></tr>
-                    <tr><th>Phone</th><td>${user.phone}</td></tr>
+                    <tr><th>Phone</th><td>${user.mobileNo}</td></tr>
                     <tr><th>Address</th><td>${user.address}</td></tr>
+                    <tr><th>Date of Birth</th><td>${user.dob}</td></tr>
+                    <tr><th>Role</th><td>${user.role}</td></tr>
                 </table>
 
                 <a href="editProfile" class="btn btn-warning">Edit Profile</a>
@@ -36,7 +56,7 @@
         </div>
     </div>
 
-    <!-- Order History -->
+    <!-- Order History Section -->
     <div class="card p-4 mt-4">
         <h4>Order History</h4>
         <table class="table table-bordered mt-3">
@@ -59,12 +79,18 @@
                         <td>${order.status}</td>
                     </tr>
                 </c:forEach>
+                <c:if test="${empty userOrders}">
+                    <tr>
+                        <td colspan="5" class="text-center">No orders found.</td>
+                    </tr>
+                </c:if>
             </tbody>
         </table>
     </div>
 </div>
 
 <jsp:include page="comman/footer.jsp"/>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

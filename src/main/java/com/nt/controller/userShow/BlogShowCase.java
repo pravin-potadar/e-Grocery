@@ -64,7 +64,7 @@ public class BlogShowCase {
 	    int userId = (int) session.getAttribute("userId");
 
 	    Blog blog = new Blog();
-	    blog.setUserId(userId);
+//	    blog.setUserId(userId);
 	    blog.setTitle(title);
 	    blog.setDescription(description);
 	    blog.setConclusion(conclusion);
