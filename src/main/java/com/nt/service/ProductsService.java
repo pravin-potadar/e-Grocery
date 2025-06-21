@@ -7,6 +7,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +16,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.nt.dao.ProductsRepository;
 import com.nt.entity.Product;
-
-import antlr.collections.List;
 
 @Service
 public class ProductsService {
@@ -57,7 +56,7 @@ public class ProductsService {
 
 //	list of products 
 
-	public java.util.List<Product> productsList() {
+	public List<Product> productsList() {
 		return productsRepository.findAll();
 
 	}
@@ -68,23 +67,23 @@ public class ProductsService {
 
 	}
 
-	public java.util.List<Product> getCategoryProducts(int categoryId) {
+	public List<Product> getCategoryProducts(int categoryId) {
 
 		
 
-		java.util.List<Product> productList = productsRepository.findAll();
+		List<Product> productList = productsRepository.findAll();
 		
 		System.out.println(productList);
 		
-		java.util.List<Product> categoryProducts = null ;
+		List<Product> categoryProducts = null ;
 
 		for (Product presentProduct : productList) {
 
-			if (categoryId == presentProduct.getCategoryId()) {
-				categoryProducts.add(presentProduct);
-				
-				System.out.println(presentProduct);
-			}
+//			if (categoryId == presentProduct.getCategoryId()) {
+//				categoryProducts.add(presentProduct);
+//				
+//				System.out.println(presentProduct);
+//			}
 
 		}
 		
@@ -92,6 +91,12 @@ public class ProductsService {
 		
 		return categoryProducts;
 
+	}
+
+	public Product getProductById(int productId) {
+		Product productFindByIdPresent = productsRepository.findById(productId);
+		return productFindByIdPresent;
+		
 	}
 
 }

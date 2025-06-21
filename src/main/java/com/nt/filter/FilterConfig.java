@@ -11,7 +11,7 @@ public class FilterConfig {
     public FilterRegistrationBean<SessionFilter> sessionFilter() {
         FilterRegistrationBean<SessionFilter> registrationBean = new FilterRegistrationBean<>();
         registrationBean.setFilter(new SessionFilter());
-        registrationBean.addUrlPatterns("/*"); // Applies to all URLs
+        registrationBean.addUrlPatterns("/*");
         return registrationBean;
     }
 }

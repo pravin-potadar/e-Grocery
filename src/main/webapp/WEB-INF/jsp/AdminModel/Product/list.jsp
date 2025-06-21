@@ -49,7 +49,7 @@
                                     <thead class="table-dark"
                                         style="position: sticky; top: 0; z-index: 1; background-color: #343a40;">
                                         <tr>
-                                            <th>ID</th>
+                                            <!-- <th>ID</th> -->
                                             <th>Name</th>
                                             <th>Image</th>
                                             <th>Price</th>
@@ -63,7 +63,7 @@
                                     <tbody>
                                         <c:forEach var="products" items="${products}">
                                             <tr>
-                                                <td>${products.id}</td>
+                                                <!-- <td>${products.id}</td> -->
                                                 <td>${products.name}</td>
                                                 <td>
                                                     <img src="resources/AdminModel/img/Products/${products.imageUrl}"
@@ -84,10 +84,11 @@
                                                 <td>${products.categoryId}</td>
                                                 <td>${products.brand}</td>
                                                 <td>
-                                                    <a href="searchProduct${products.id}"
-                                                        class="btn btn-warning btn-sm">Edit</a>
-                                                    <a href="delete-product/${products.id}"
-                                                        class="btn btn-danger btn-sm">Delete</a>
+                                                    <span class="ms-4"><a href="listSearchCategory?id=${category.id}"><i
+                                                                class="fa-solid fa-pen-to-square"></i></a></span>
+
+                                                    <span class="ms-4"><a href=""><i
+                                                                class="fa-solid fa-trash"></i></a></i></span>
                                                 </td>
                                             </tr>
                                         </c:forEach>
@@ -98,9 +99,9 @@
                         </div>
                     </div>
                 </div>
-            
 
-                
+
+
             </body>
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

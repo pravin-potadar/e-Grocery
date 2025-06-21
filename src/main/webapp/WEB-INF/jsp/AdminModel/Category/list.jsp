@@ -90,7 +90,7 @@
 
 												</form> -->
 
-												<span class="ms-4"><a href="listSearchCategory?id=${category.id}"><i class="fa-solid fa-pen-to-square"></i></a></span>
+												<span class="ms-4"><a href="#"><i class="fa-solid fa-pen-to-square"></i></a></span>
 
 												<span class="ms-4"><a href=""><i class="fa-solid fa-trash"></i></a></i></span>
 											</td>
