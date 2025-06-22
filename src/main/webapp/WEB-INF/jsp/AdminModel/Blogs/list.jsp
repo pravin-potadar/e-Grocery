@@ -1,70 +1,102 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html>
+<html lang="en">
 
-		<!doctype html>
-		<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog List</title>
 
-		<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-		</head>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/AdminModel/css/dashboard.css" />
 
-		<body>
+  <style>
+    .main {
+      margin-left: 250px; /* Width of the sidebar */
+      margin-top: 70px;   /* Height of the header */
+      padding: 20px;
+      min-height: calc(100vh - 70px);
+      overflow-y: auto;
+    }
 
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 70px;
+      background: white;
+      z-index: 1000;
+      border-bottom: 1px solid #ddd;
+    }
 
+    .sidebar {
+      position: fixed;
+      top: 70px;
+      left: 0;
+      width: 250px;
+      height: calc(100vh - 70px);
+      background: #f8f9fa;
+      overflow-y: auto;
+      padding: 10px;
+      border-right: 1px solid #ddd;
+    }
 
-			<jsp:include page="../header.jsp"></jsp:include>
+    table img {
+      object-fit: cover;
+    }
+  </style>
+</head>
 
+<body>
 
-			<div class="main col-10" style="position: relative;">
-				<div class="container-fluid">
-					<h2 class="mt-5">Blog List</h2>
-					<table class="table table-bordered table-striped mt-3">
-						<thead class="table-dark">
-							<tr>
-								<th>Title</th>
-								<th>Description</th>
-								<th>Conclusion</th>
-								<th>Image</th>
-								<!-- <th>Status</th> -->
-								<th>Date</th>
-								<th>Actions</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach var="blog" items="${blogsData}">
-								<tr>
-									<td>${blog.title}</td>
-									<td>${blog.description}</td>
-									<td>${blog.conclusion}</td>
-									<td>
-										<img src="resources/AdminModel/img/BlogImges/${blog.imageUrl}" width="100px"
-											height="80px" alt="${blog.imageUrl}">
-									</td>
-									<!-- <td>${blog.status}</td> -->
-									<td>${blog.date}</td>
-									<td>
-										<span class="ms-4"><a href="#"><i
-													class="fa-solid fa-pen-to-square"></i></a></span>
+  <jsp:include page="../header.jsp"></jsp:include>
 
-										<span class="ms-4"><a href=""><i class="fa-solid fa-trash"></i></a></i></span>
-									</td>
-								</tr>
-							</c:forEach>
+  <div class="main">
+    <div class="container-fluid">
+      <h2 class="mb-4">Blog List</h2>
 
-						</tbody>
-					</table>
-				</div>
-			</div>
+      <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Conclusion</th>
+            <th>Image</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <c:forEach var="blog" items="${blogsData}">
+            <tr>
+              <td>${blog.title}</td>
+              <td>${blog.description}</td>
+              <td>${blog.conclusion}</td>
+              <td>
+                <img src="resources/AdminModel/img/BlogImges/${blog.imageUrl}" width="100" height="80"
+                  alt="${blog.imageUrl}" />
+              </td>
+              <td>${blog.date}</td>
+              <td>
+                <a href="#" class="text-primary me-3"><i class="fa-solid fa-pen-to-square"></i></a>
+                <a href="#" class="text-danger"><i class="fa-solid fa-trash"></i></a>
+              </td>
+            </tr>
+          </c:forEach>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-		</body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
 
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-			crossorigin="anonymous"></script>
+  <script src="${pageContext.request.contextPath}/resources/AdminModel/js/dashboard.js"></script>
+</body>
 
-		<script src="resources/AdminModel/js/dashboard.js"></script>
-
-
-
-		</html>
+</html>

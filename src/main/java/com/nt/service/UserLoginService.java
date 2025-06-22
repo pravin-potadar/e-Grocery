@@ -8,18 +8,13 @@ import com.nt.entity.Users;
 
 @Service
 public class UserLoginService {
-	
-	@Autowired
-	private UsersRepository usersRepository; 
+    
+    @Autowired
+    private UsersRepository usersRepository;
 
-	public Users userLoginService(String email) {
-		
-		Users presentUser = usersRepository.findByEmail(email);
-		
-		System.out.println(presentUser + "service page");
-		
-		return presentUser;
-		
-	}
-
+    public Users userLoginService(String email) {
+        Users presentUser = usersRepository.findByEmail(email);
+        System.out.println(presentUser + " service page");
+        return presentUser;
+    }
 }

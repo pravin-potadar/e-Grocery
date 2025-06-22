@@ -26,22 +26,31 @@ public class CategoryService {
 
     private static final String UPLOAD_DIR = "Q:\\SPRING\\Spring WebApplication\\e-Grocery\\src\\main\\webapp\\resources\\AdminModel\\img\\Category\\";
 
-    // Save image file and return its new unique name
     private String saveImageFile(MultipartFile imageFile) throws IOException {
+        if (imageFile == null || imageFile.isEmpty()) {
+            throw new IllegalArgumentException("Image file is required.");
+        }
+
+        String contentType = imageFile.getContentType();
+        if (contentType == null || !contentType.startsWith("image/")) {
+            throw new IllegalArgumentException("Only image files are allowed.");
+        }
+
         File uploadDir = new File(UPLOAD_DIR);
         if (!uploadDir.exists()) {
             uploadDir.mkdirs();
         }
 
         String originalFilename = imageFile.getOriginalFilename();
-        String fileName = UUID.randomUUID() + "_" + (originalFilename != null ? originalFilename.replaceAll("\\s+", "_") : "default.png");
-        Path path = Paths.get(UPLOAD_DIR + fileName);
+        String safeFilename = UUID.randomUUID() + "_" +
+                (originalFilename != null ? originalFilename.replaceAll("\\s+", "_") : "default.png");
+
+        Path path = Paths.get(UPLOAD_DIR).resolve(safeFilename);
         Files.write(path, imageFile.getBytes());
 
-        return fileName;
+        return safeFilename;
     }
 
-    // Add new category
     public boolean addCategory(String categoryName, MultipartFile categoryImage) {
         try {
             String fileName = saveImageFile(categoryImage);
@@ -49,29 +58,21 @@ public class CategoryService {
             Category category = new Category(categoryName, fileName, LocalDate.now(), LocalTime.now());
             categoryRepository.save(category);
             return true;
-        } catch (IOException e) {
-            throw new RuntimeException("Error saving category image", e);
+        } catch (Exception e) {
+            System.err.println("Error saving category: " + e.getMessage());
+            return false;
         }
     }
 
-    // Get all categories
     public List<Category> getAllCategories() {
         return categoryRepository.findAll();
     }
 
-    // Get category by ID
     public Category getCategoryFindById(int id) {
-        Optional<Category> optional = categoryRepository.findById(id);
-        if (optional.isPresent()) {
-            System.out.println("find using id " + optional.get().getName());
-            return optional.get();
-        } else {
-            System.err.println("Category not found with ID: " + id);
-            return null;
-        }
+        return categoryRepository.findById(id)
+                .orElse(null);
     }
 
-    // Update existing category
     public boolean updateCategory(Category updateCategory, MultipartFile image) {
         try {
             Optional<Category> optional = categoryRepository.findById(updateCategory.getId());
@@ -85,31 +86,25 @@ public class CategoryService {
             existing.setCreatedDate(LocalDate.now());
             existing.setCreatedTime(LocalTime.now());
 
-            // Only replace image if a new one is uploaded
             if (image != null && !image.isEmpty()) {
-
-                // Delete old image from disk
+                // Delete old image
                 String oldImagePath = UPLOAD_DIR + existing.getImageUrl();
-                File oldImageFile = new File(oldImagePath);
-                if (oldImageFile.exists()) {
-                    oldImageFile.delete(); // delete old image
+                File oldFile = new File(oldImagePath);
+                if (oldFile.exists()) {
+                    oldFile.delete();
                 }
 
                 // Save new image
-                String fileName = UUID.randomUUID() + "_" + image.getOriginalFilename().replaceAll("\\s+", "_");
-                Path path = Paths.get(UPLOAD_DIR + fileName);
-                Files.write(path, image.getBytes());
-
-                // Update image URL in DB
-                existing.setImageUrl(fileName);
+                String newFileName = saveImageFile(image);
+                existing.setImageUrl(newFileName);
             }
 
             categoryRepository.save(existing);
             return true;
 
-        } catch (IOException e) {
-            throw new RuntimeException("Error updating category", e);
+        } catch (Exception e) {
+            System.err.println("Error updating category: " + e.getMessage());
+            return false;
         }
     }
-
 }
