@@ -38,7 +38,7 @@ public class OrderConfirmation {
 	                               Model model) {
 
 	        // Get product from DB
-	        Product product = productService.productFindById(productId);
+	        Product product = productService.getProductById(productId);
 
 	        // Send data to confirmation page
 	        model.addAttribute("product", product);
@@ -68,7 +68,7 @@ public class OrderConfirmation {
 	            Model model) {
 
 	        // Fetch product from DB
-	        Product product = productService.productFindById(productId);
+	        Product product = productService.getProductById(productId);
 
 	        // Add all data to model for payment page
 	        model.addAttribute("product", product);

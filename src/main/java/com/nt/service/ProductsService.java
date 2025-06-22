@@ -2,13 +2,10 @@ package com.nt.service;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.nio.file.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,83 +17,50 @@ import com.nt.entity.Product;
 @Service
 public class ProductsService {
 
-	@Autowired
-	private ProductsRepository productsRepository;
+    @Autowired
+    private ProductsRepository productsRepository;
 
-	private static final String UPLOAD_DIR = "Q:\\SPRING\\Spring WebApplication\\e-Grocery\\src\\main\\webapp\\resources\\AdminModel\\img\\Products"; // Change
-																																						// path
-																																						// as
+    private static final String UPLOAD_DIR = "Q:\\SPRING\\Spring WebApplication\\e-Grocery\\src\\main\\webapp\\resources\\AdminModel\\img\\Products\\";
 
-	public boolean productAdd(Product products, MultipartFile imgFile) {
-		try {
-			File uploadDir = new File(UPLOAD_DIR);
-			if (!uploadDir.exists()) {
-				uploadDir.mkdirs();
-			}
+    public boolean productAdd(Product product, MultipartFile imgFile) {
+        try {
+            File uploadDir = new File(UPLOAD_DIR);
+            if (!uploadDir.exists()) uploadDir.mkdirs();
 
-			String fileName = UUID.randomUUID() + "_" + imgFile.getOriginalFilename();
-			String filePath = UPLOAD_DIR + File.separator + fileName;
+            String fileName = UUID.randomUUID() + "_" + imgFile.getOriginalFilename().replaceAll("\\s+", "_");
+            Path path = Paths.get(UPLOAD_DIR).resolve(fileName);
+            Files.write(path, imgFile.getBytes());
 
-			Path path = Paths.get(filePath);
-			Files.write(path, imgFile.getBytes());
+            product.setImageUrl(fileName);
+            product.setCreatedDate(LocalDate.now());
+            product.setCreatedTime(LocalTime.now());
 
-			// Save the relative path or filename to the DB
-			products.setImageUrl(fileName); // Assuming your Product entity has a field `image`
-			products.setCreatedDate(LocalDate.now());
-			products.setCreatedTime(LocalTime.now());
-			products.setImageUrl(fileName);
+            productsRepository.save(product);
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
-			productsRepository.save(products);
-			return true;
-		} catch (IOException e) {
-			e.printStackTrace();
-			return false;
-		}
-	}
+    public List<Product> productsList() {
+        return productsRepository.findAll();
+    }
 
-//	list of products 
+    public Product getProductById(int id) {
+        return productsRepository.findById(id);
+    }
 
-	public List<Product> productsList() {
-		return productsRepository.findAll();
+    public List<Product> getCategoryProducts(int categoryId) {
+        List<Product> allProducts = productsRepository.findAll();
+        List<Product> categoryProducts = new ArrayList<>();
+        for (Product product : allProducts) {
+            if (product.getCategory() != null && product.getCategory().getId() == categoryId) {
+                categoryProducts.add(product);
+            }
+        }
+        return categoryProducts;
+    }
 
-	}
-
-	public Product productFindById(int id) {
-		Product productFindByIdPresent = productsRepository.findById(id);
-		return productFindByIdPresent;
-
-	}
-
-	public List<Product> getCategoryProducts(int categoryId) {
-
-		
-
-		List<Product> productList = productsRepository.findAll();
-		
-		System.out.println(productList);
-		
-		List<Product> categoryProducts = null ;
-
-		for (Product presentProduct : productList) {
-
-//			if (categoryId == presentProduct.getCategoryId()) {
-//				categoryProducts.add(presentProduct);
-//				
-//				System.out.println(presentProduct);
-//			}
-
-		}
-		
-		System.out.println(categoryProducts);
-		
-		return categoryProducts;
-
-	}
-
-	public Product getProductById(int productId) {
-		Product productFindByIdPresent = productsRepository.findById(productId);
-		return productFindByIdPresent;
-		
-	}
-
+	
 }
