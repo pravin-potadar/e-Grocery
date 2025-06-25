@@ -83,7 +83,7 @@
 
         <div class="row mb-4">
             <div class="col-md-4 text-center">
-                <img class="product-img" src="resources/AdminModel/img/Products/${product.imageUrl}" alt="${product.name}" />
+                <img style="width: 50%" class="product-img" src="resources/AdminModel/img/Products/${product.imageUrl}" alt="${product.name}" />
                 <h5>${product.name}</h5>
                 <p>Qty: ${quantity} | Total: ₹<strong>${netAmount}</strong></p>
             </div>
@@ -100,13 +100,13 @@
                     <!-- Payment Options -->
                     <label class="payment-option">
                         <input type="radio" name="paymentMethod" value="razorpay" required />
-                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" class="payment-logo" />
+                        <img src="https://cdn-icons-png.flaticon.com/512/6951/6951764.png" class="payment-logo" />
                         Razorpay (UPI / Net Banking / Card)
                     </label>
 
                     <label class="payment-option">
                         <input type="radio" name="paymentMethod" value="cod" required />
-                        <img src="https://cdn-icons-png.flaticon.com/512/2933/2933185.png" class="payment-logo" />
+                        <img src="https://cdn-icons-png.flaticon.com/512/3081/3081295.png" class="payment-logo" />
                         Cash on Delivery (COD)
                     </label>
 

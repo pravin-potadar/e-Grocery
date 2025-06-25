@@ -94,6 +94,13 @@
     .logo {
       font-weight: bold;
     }
+    
+/*      .subList {
+    display: none;
+  }
+  .subList.show {
+    display: block;
+  } */
   </style>
 </head>
 
@@ -114,30 +121,30 @@
 
   <!-- SIDEBAR -->
   <aside class="sidebar">
-    <button class="sidBarBtn"><i class="fa-solid fa-house"></i>Dashboard</button>
+    <button class="sidBarBtn" onclick="window.location.href='dashboard'"><i class="fa-solid fa-house"></i>Dashboard</button>
 
-    <button id="categoryBtn" class="sidBarBtn"><i class="fa-solid fa-clipboard-list"></i>Category</button>
-    <div class="subList">
+    <button id="Category" class="sidBarBtn has-sublist"><i class="fa-solid fa-clipboard-list"></i>Category</button>
+    <div id="CategoryList" class="subList">
       <a href="category-add" class="sidBarAtag"><i class="fa-solid fa-plus"></i>Add</a>
       <a href="category-update" class="sidBarAtag"><i class="fa-solid fa-pen-to-square"></i>Update</a>
       <a href="listCategory" class="sidBarAtag"><i class="fa-solid fa-table-list"></i>List</a>
     </div>
 
-    <button class="sidBarBtn"><i class="fa-solid fa-cart-shopping"></i>Product</button>
+    <button class="sidBarBtn has-sublist"><i class="fa-solid fa-cart-shopping"></i>Product</button>
     <div class="subList">
       <a href="product-add" class="sidBarAtag"><i class="fa-solid fa-plus"></i>Add</a>
       <a href="product-update" class="sidBarAtag"><i class="fa-solid fa-pen-to-square"></i>Update</a>
       <a href="product-list" class="sidBarAtag"><i class="fa-solid fa-table-list"></i>List</a>
     </div>
 
-    <button class="sidBarBtn"><i class="fa-solid fa-blog"></i>Blogs</button>
+    <button class="sidBarBtn has-sublist"><i class="fa-solid fa-blog"></i>Blogs</button>
     <div class="subList">
       <a href="blog-add" class="sidBarAtag"><i class="fa-solid fa-plus"></i>Add</a>
       <a href="blog-page" class="sidBarAtag"><i class="fa-solid fa-pen-to-square"></i>Update</a>
       <a href="blogs-list" class="sidBarAtag"><i class="fa-solid fa-table-list"></i>List</a>
     </div>
 
-    <button class="sidBarBtn"><i class="fa-solid fa-box"></i>Orders</button>
+    <button class="sidBarBtn has-sublist"><i class="fa-solid fa-box"></i>Orders</button>
     <div class="subList">
       <a class="sidBarAtag"><i class="fa-solid fa-plus"></i>Completed</a>
       <a class="sidBarAtag"><i class="fa-solid fa-pen-to-square"></i>Pending</a>
@@ -145,13 +152,44 @@
       <a class="sidBarAtag"><i class="fa-solid fa-times"></i>Canceled</a>
     </div>
 
-    <button class="sidBarBtn"><i class="fa-solid fa-file-invoice-dollar"></i>Transactions</button>
+    <button class="sidBarBtn has-sublist"><i class="fa-solid fa-file-invoice-dollar"></i>Transactions</button>
     <div class="subList">
       <a class="sidBarAtag"><i class="fa-solid fa-money-bill-wave"></i>Payments</a>
       <a class="sidBarAtag"><i class="fa-solid fa-rotate-left"></i>Refunds</a>
       <a class="sidBarAtag"><i class="fa-solid fa-hand-holding-usd"></i>Payouts</a>
     </div>
   </aside>
+  
+  
+  
+  
+  
+  
+<!--   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+<script>
+  $(document).ready(function () {
+    $(".has-sublist").click(function () {
+      $(this).next(".subList").toggle(); // Toggle only the sublist under this button
+    });
+  });
+</script> -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.getElementById("categoryBtn");
+    const subList = btn.nextElementSibling;
+
+    btn.addEventListener("click", function () {
+      subList.classList.toggle("show");
+    });
+  });
+</script>
+
+
+
+
 
   
 
@@ -164,6 +202,9 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  
+  
 <!-- </body>
 
 </html> -->

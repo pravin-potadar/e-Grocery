@@ -105,7 +105,7 @@
       <div class="row">
         <div class="col-md-4 mb-3">
           <label for="category" class="form-label">Category</label>
-          <select class="form-select" id="category" name="categoryId" required>
+          <select class="form-select" id="category" name="category.id" required>
             <option value="" disabled selected>Select a category</option>
             <c:forEach var="cat" items="${categories}">
               <option value="${cat.id}">${cat.name}</option>

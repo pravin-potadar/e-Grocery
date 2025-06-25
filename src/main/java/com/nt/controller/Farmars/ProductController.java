@@ -43,15 +43,15 @@ public class ProductController {
     }
 
     // Add product with image
-    @PostMapping("/addProduct")
+    @PostMapping("addProduct")
     public String addProduct(@ModelAttribute Product product,
                              @RequestParam MultipartFile imgFile) {
         boolean status = productService.productAdd(product, imgFile);
-        return "redirect:/product-list";
+        return "redirect:product-list";
     }
 
     // List products
-    @GetMapping("/product-list")
+    @GetMapping("product-list")
     public String productsList(Model model) {
         List<Product> products = productService.productsList();
         model.addAttribute("products", products);
@@ -77,8 +77,8 @@ public class ProductController {
     }
 
     // Product buy redirection (future logic can go here)
-    @PostMapping("/buyProduct")
-    public String buyProduct() {
-        return "redirect:/order";
-    }
+//    @PostMapping("/buyProduct")
+//    public String buyProduct() {
+//        return "redirect:/order";
+//    }
 }

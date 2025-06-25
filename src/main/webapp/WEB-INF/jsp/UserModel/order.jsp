@@ -103,7 +103,7 @@ pageEncoding="UTF-8" %>
               <center>
                 <img
                   class="product-img"
-                  src="resources/AdminModel/img/Products/${product.imageUrl}"
+                  src="/resources/AdminModel/img/Products/${product.imageUrl}"
                   alt="${product.name}"
                 />
               </center>
