@@ -136,7 +136,7 @@
 																</div>
 																<div class="col-12">
 																	<form class="row justify-content-evenly"
-																		action="onClickProductAndShowDatails${product.id}">
+																		action="product/view/${product.id}">
 																		<input type="submit"
 																			class="col-10 ShopCardBuyNow"
 																			value="Buy"></input>

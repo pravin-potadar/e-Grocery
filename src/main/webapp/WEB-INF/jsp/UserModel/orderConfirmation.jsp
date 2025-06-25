@@ -78,7 +78,7 @@
     <div class="product-card">
         <div class="row">
             <div class="col-md-6 text-center">
-                <img class="product-img" src="resources/AdminModel/img/Products/${product.imageUrl}"
+                <img style="width: 50%" class="product-img" src="resources/AdminModel/img/Products/${product.imageUrl}"
                      alt="${product.name}" onerror="this.src='https://via.placeholder.com/300'" />
             </div>
             <div class="col-md-6 d-flex flex-column justify-content-center">
