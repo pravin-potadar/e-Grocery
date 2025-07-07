@@ -30,8 +30,11 @@ public class UserRegisterController {
         session.setAttribute("userLName", userData.getLastName());
         session.setAttribute("userEmail", userData.getEmail());
 
-        boolean success = userRegisterService.addNewUserRegister(userData);
-
-        return success ? "redirect:/index" : "redirect:/UserRegister";
+        boolean isSuccess = userRegisterService.addNewUserRegister(userData);
+        
+        if (isSuccess)
+        	return "redirect:index";
+        else
+        return  "redirect:/UserRegister";
     }
 }

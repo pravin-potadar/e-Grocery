@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"com.nt.controller","c":"DemoPurpose","l":"DemoPurpose()","u":"%3Cinit%3E()"}];updateSearchResults();

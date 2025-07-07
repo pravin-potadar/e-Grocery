@@ -14,7 +14,7 @@
 
   <body>
     <div class="register-container">
-      <form class="register-form" action="userRegisterForm" method="get">
+      <form class="register-form" action="userRegisterForm" method="post">
         <h2>Register</h2>
 
         <div class="form-group double">
