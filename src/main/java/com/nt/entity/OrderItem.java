@@ -1,9 +1,6 @@
 package com.nt.entity;
 
-
-
-import java.time.LocalDate;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,25 +15,24 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "blogs")
-@Getter 
-@Setter 
-@NoArgsConstructor 
-@AllArgsConstructor
-public class Blog {
+@Table(name = "order_items")
+@Getter @Setter @NoArgsConstructor @AllArgsConstructor
+public class OrderItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
-    private String imageUrl;
-    private String title;
-    private String description;
-    private String conclusion;
-    private String status;
-    private LocalDate date;
+    private int quantity;
+
+    @Column(nullable = false)
+    private double price;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private Users user;
+    @JoinColumn(name = "order_id", nullable = false)
+    private Order order;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id", nullable = false)
+    private Product product;
 }

@@ -175,7 +175,7 @@
 
   <!-- SIDEBAR -->
   <aside class="sidebar">
-    <button class="sidBarBtn" onclick="window.location.href='dashboard'">
+    <button class="sidBarBtn" onclick="window.location.href='/dashboard'">
       <i class="fa-solid fa-house"></i><span>Dashboard</span>
     </button>
 
@@ -183,46 +183,46 @@
       <i class="fa-solid fa-clipboard-list"></i><span>Category</span>
     </button>
     <div class="subList">
-      <a href="category-add" class="sidBarAtag"><i class="fa-solid fa-plus"></i><span>Add</span></a>
-      <a href="category-update" class="sidBarAtag"><i class="fa-solid fa-pen-to-square"></i><span>Update</span></a>
-      <a href="listCategory" class="sidBarAtag"><i class="fa-solid fa-table-list"></i><span>List</span></a>
+      <a href="/category-add" class="sidBarAtag"><i class="fa-solid fa-plus"></i><span>Add</span></a>
+      <!-- <a href="/category-update" class="sidBarAtag"><i class="fa-solid fa-pen-to-square"></i><span>Update</span></a> -->
+      <a href="/listCategory" class="sidBarAtag"><i class="fa-solid fa-table-list"></i><span>List</span></a>
     </div>
 
     <button class="sidBarBtn has-sublist">
       <i class="fa-solid fa-cart-shopping"></i><span>Product</span>
     </button>
     <div class="subList">
-      <a href="product-add" class="sidBarAtag"><i class="fa-solid fa-plus"></i><span>Add</span></a>
-      <a href="product-update" class="sidBarAtag"><i class="fa-solid fa-pen-to-square"></i><span>Update</span></a>
-      <a href="product-list" class="sidBarAtag"><i class="fa-solid fa-table-list"></i><span>List</span></a>
+      <a href="/product-add" class="sidBarAtag"><i class="fa-solid fa-plus"></i><span>Add</span></a>
+      <!-- <a href="product-update" class="sidBarAtag"><i class="fa-solid fa-pen-to-square"></i><span>Update</span></a> -->
+      <a href="/product-list" class="sidBarAtag"><i class="fa-solid fa-table-list"></i><span>List</span></a>
     </div>
 
     <button class="sidBarBtn has-sublist">
       <i class="fa-solid fa-blog"></i><span>Blogs</span>
     </button>
     <div class="subList">
-      <a href="blog-add" class="sidBarAtag"><i class="fa-solid fa-plus"></i><span>Add</span></a>
-      <a href="blog-page" class="sidBarAtag"><i class="fa-solid fa-pen-to-square"></i><span>Update</span></a>
-      <a href="blogs-list" class="sidBarAtag"><i class="fa-solid fa-table-list"></i><span>List</span></a>
+      <a href="/blog-add" class="sidBarAtag"><i class="fa-solid fa-plus"></i><span>Add</span></a>
+      <!-- <a href="/blog-page" class="sidBarAtag"><i class="fa-solid fa-pen-to-square"></i><span>Update</span></a> -->
+      <a href="/blogs-list" class="sidBarAtag"><i class="fa-solid fa-table-list"></i><span>List</span></a>
     </div>
 
     <button class="sidBarBtn has-sublist">
       <i class="fa-solid fa-box"></i><span>Orders</span>
     </button>
     <div class="subList">
-      <a href="completed" class="sidBarAtag"><i class="fa-solid fa-check"></i><span>Completed</span></a>
-      <a href="pending" class="sidBarAtag"><i class="fa-solid fa-clock"></i><span>Pending</span></a>
-      <a href="allOrders" class="sidBarAtag"><i class="fa-solid fa-table-list"></i><span>All Orders</span></a>
-      <a href="canceled" class="sidBarAtag"><i class="fa-solid fa-times"></i><span>Canceled</span></a>
+      <a href="/completed" class="sidBarAtag"><i class="fa-solid fa-check"></i><span>Completed</span></a>
+      <a href="/pending" class="sidBarAtag"><i class="fa-solid fa-clock"></i><span>Pending</span></a>
+      <a href="/allOrders" class="sidBarAtag"><i class="fa-solid fa-table-list"></i><span>All Orders</span></a>
+      <a href="/canceled" class="sidBarAtag"><i class="fa-solid fa-times"></i><span>Canceled</span></a>
     </div>
 
     <button class="sidBarBtn has-sublist">
       <i class="fa-solid fa-file-invoice-dollar"></i><span>Transactions</span>
     </button>
     <div class="subList">
-      <a href="allPayments" class="sidBarAtag"><i class="fa-solid fa-money-bill-wave"></i><span>Payments</span></a>
-      <a href="refunds" class="sidBarAtag"><i class="fa-solid fa-rotate-left"></i><span>Refunds</span></a>
-      <a href="payouts" class="sidBarAtag"><i class="fa-solid fa-hand-holding-usd"></i><span>Payouts</span></a>
+      <a href="/allPayments" class="sidBarAtag"><i class="fa-solid fa-money-bill-wave"></i><span>Payments</span></a>
+      <a href="/refunds" class="sidBarAtag"><i class="fa-solid fa-rotate-left"></i><span>Refunds</span></a>
+      <a href="/payouts" class="sidBarAtag"><i class="fa-solid fa-hand-holding-usd"></i><span>Payouts</span></a>
     </div>
   </aside>
 

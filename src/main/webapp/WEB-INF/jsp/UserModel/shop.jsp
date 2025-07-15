@@ -162,10 +162,10 @@
                 </div>
             </div> -->
 
-                    <!-- Sidebar with Filters -->
+                <!-- Sidebar with Filters -->
 
                 <div class="mt-5 shopArea container-fluid row">
-                    
+
                     <!-- <div class="col-md-3 filterSidebar p-4">
                         <h4 class="text-center">Filters</h4>
                         <hr>
@@ -223,18 +223,22 @@
 
                                         <!-- Buttons -->
                                         <div class="row g-2">
+                                            <!-- Buy Button -->
                                             <div class="col-6">
-                                                <form action="onClickProductAndShowDatails${product.id}" method="get">
+                                                <form action="/product/view/${product.id}" method="get">
                                                     <button class="btn btn-success w-100 rounded-3">Buy</button>
                                                 </form>
                                             </div>
+
+                                            <!-- Add to Cart Button -->
                                             <div class="col-6">
-                                                <form action="" method="get">
+                                                <form action="/product/view/${product.id}" method="get">
                                                     <button class="btn btn-outline-primary w-100 rounded-3">Add to
                                                         Cart</button>
                                                 </form>
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>
                             </c:forEach>

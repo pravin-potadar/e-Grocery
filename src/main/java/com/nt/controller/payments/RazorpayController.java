@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nt.entity.Product;
+import com.nt.entity.Users;
 import com.nt.service.OrderService;
 import com.nt.service.ProductsService;
 
@@ -22,7 +23,7 @@ public class RazorpayController {
     private OrderService orderService;
 
     // STEP 1: Payment form handler
-    @PostMapping("/finalPayment")
+    @PostMapping("finalPayment")
     public String finalPaymentHandler(
             @RequestParam("productId") int productId,
             @RequestParam("quantity") int quantity,
@@ -35,26 +36,29 @@ public class RazorpayController {
             Model model) {
 
         Product product = productService.getProductById(productId);
-        if (product == null) {
-            model.addAttribute("error", "Product not found.");
+        Users user = (Users) session.getAttribute("user"); // ✅ Get user from session
+
+        if (product == null || user == null) {
+            model.addAttribute("error", "Product or User not found.");
             return "UserModel/paymentMethod";
         }
 
-        // Store payment data in session
-        session.setAttribute("product", product);
-        session.setAttribute("quantity", quantity);
-        session.setAttribute("netAmount", netAmount);
-        session.setAttribute("landmark", landmark);
-        session.setAttribute("fullAddress", fullAddress);
-        session.setAttribute("pinCode", pinCode);
-
-        // Decide payment method
         if ("razorpay".equalsIgnoreCase(paymentMethod)) {
-            return "UserModel/razorpayPage"; // JSP page to initiate Razorpay
+            // Store in session for next step (razorpay page)
+            session.setAttribute("product", product);
+            session.setAttribute("quantity", quantity);
+            session.setAttribute("netAmount", netAmount);
+            session.setAttribute("landmark", landmark);
+            session.setAttribute("fullAddress", fullAddress);
+            session.setAttribute("pinCode", pinCode);
+            session.setAttribute("user", user); // ✅ Ensure user stays in session
+
+            return "UserModel/razorpayPage";
         } else if ("cod".equalsIgnoreCase(paymentMethod)) {
             String paymentId = "COD_" + System.currentTimeMillis();
 
-            orderService.saveRazorpayOrder(product, quantity, netAmount, landmark, fullAddress, pinCode, paymentId);
+            orderService.saveRazorpayOrder(product, quantity, netAmount,
+                    landmark, fullAddress, pinCode, paymentId, user); // ✅ pass user
 
             session.invalidate();
             model.addAttribute("message", "Your order was placed successfully (Cash on Delivery).");
@@ -65,29 +69,4 @@ public class RazorpayController {
         return "UserModel/paymentMethod";
     }
 
-    // STEP 2: Razorpay success callback
-    @PostMapping("/razorpaySuccess")
-    public String razorpaySuccess(
-            @RequestParam String paymentId,
-            HttpSession session,
-            Model model) {
-
-        Product product = (Product) session.getAttribute("product");
-        Integer quantity = (Integer) session.getAttribute("quantity");
-        Double netAmount = (Double) session.getAttribute("netAmount");
-        String landmark = (String) session.getAttribute("landmark");
-        String fullAddress = (String) session.getAttribute("fullAddress");
-        String pinCode = (String) session.getAttribute("pinCode");
-
-        if (product == null || quantity == null || netAmount == null) {
-            model.addAttribute("error", "Session expired or invalid.");
-            return "UserModel/paymentMethod";
-        }
-
-        orderService.saveRazorpayOrder(product, quantity, netAmount, landmark, fullAddress, pinCode, paymentId);
-
-        session.invalidate();
-        model.addAttribute("message", "Payment Successful via Razorpay!");
-        return "UserModel/orderSuccess";
-    }
 }

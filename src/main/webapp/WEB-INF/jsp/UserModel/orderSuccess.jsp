@@ -60,7 +60,7 @@
             <div class="modal-body">
                 <h4 class="mb-3 text-success">Order Placed Successfully!</h4>
                 <p class="text-muted">Thank you for shopping with us. Your order is confirmed and will be delivered soon.</p>
-                <a href="index" class="btn btn-home mt-3">Back to Home</a>
+                <a href="/index" class="btn btn-home mt-3">Back to Home</a>
             </div>
         </div>
     </div>
