@@ -88,7 +88,7 @@
                 <p>Qty: ${quantity} | Total: ₹<strong>${netAmount}</strong></p>
             </div>
             <div class="col-md-8">
-                <form action="finalPayment" method="post">
+                <form action="/finalPayment" method="post">
                     <!-- Hidden Order Fields -->
                     <input type="hidden" name="productId" value="${product.id}" />
                     <input type="hidden" name="quantity" value="${quantity}" />

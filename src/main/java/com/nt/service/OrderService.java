@@ -8,52 +8,67 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.nt.dao.OrderItemRepository;
 import com.nt.dao.OrderRepository;
+import com.nt.dao.ProductsRepository;
 import com.nt.dao.TransactionRepository;
 import com.nt.entity.Order;
+import com.nt.entity.OrderItem;
 import com.nt.entity.Product;
 import com.nt.entity.Transaction;
+import com.nt.entity.Users;
 
 @Service
 public class OrderService {
 
-    @Autowired
-    private OrderRepository orderRepository;
+	@Autowired
+	private OrderRepository orderRepository;
 
-    @Autowired
-    private TransactionRepository transactionRepository;
+	@Autowired
+	private OrderItemRepository orderItemRepository;
 
-    @Transactional
-    public void saveRazorpayOrder(Product product, Integer quantity, Double netAmount, String landmark,
-                                   String fullAddress, String pinCode, String paymentId) {
+	@Autowired
+	private TransactionRepository transactionRepository;
 
-        // Step 1: Save Order
-        Order order = new Order();
-        order.setUser(product.getUser()); // or get from session
-        order.setQuantity(quantity);
-        order.setPrice(Double.parseDouble(product.getPrice())); // assuming stored as String
-        order.setTotalPrice(netAmount);
-        order.setOrderDate(LocalDateTime.now());
-        order.setDeliveryDate(LocalDate.now().plusDays(5)); // Estimated
-        order.setStatus("Confirmed");
-        order.setPaymentStatus("Paid");
+	@Autowired
+	private ProductsRepository productRepository;
 
-        Order savedOrder = orderRepository.save(order);
+	@Transactional
+	public void saveRazorpayOrder(Product product, Integer quantity, Double netAmount, String landmark,
+			String fullAddress, String pinCode, String paymentId, Users user) {
 
-        // Step 2: Save Transaction
-        Transaction txn = new Transaction();
-        txn.setOrder(savedOrder);
-        txn.setAmount(netAmount);
-        txn.setTransactionDate(LocalDateTime.now());
-        txn.setTransactionStatus("Success");
-        txn.setTransactionReference(paymentId);
-        txn.setPaymentMethod(paymentId.startsWith("COD_") ? "COD" : "Razorpay");
+		Order order = new Order();
+		order.setUser(user); // ✅ Set the user here
+		order.setOrderDate(LocalDateTime.now());
+		order.setDeliveryDate(LocalDate.now().plusDays(5));
+		order.setStatus("Confirmed");
+		order.setPaymentStatus("Paid");
+		order.setLandmark(landmark);
+		order.setFullAddress(fullAddress);
+		order.setPinCode(pinCode);
 
-        transactionRepository.save(txn);
+		Order savedOrder = orderRepository.save(order);
 
-        // Step 3: Optional - Reduce stock (if using numeric stock)
-        // int newStock = Integer.parseInt(product.getStock()) - quantity;
-        // product.setStock(String.valueOf(newStock));
-        // productRepository.save(product);
-    }
+		OrderItem item = new OrderItem();
+		item.setOrder(savedOrder);
+		item.setProduct(product);
+		item.setQuantity(quantity);
+		item.setPrice(product.getPrice());
+
+		orderItemRepository.save(item);
+
+		Transaction txn = new Transaction();
+		txn.setOrder(savedOrder);
+		txn.setAmount(netAmount);
+		txn.setTransactionDate(LocalDateTime.now());
+		txn.setTransactionStatus("Success");
+		txn.setTransactionReference(paymentId);
+		txn.setPaymentMethod(paymentId.startsWith("COD_") ? "COD" : "Razorpay");
+
+		transactionRepository.save(txn);
+
+		product.setStock(product.getStock() - quantity);
+		productRepository.save(product);
+	}
+
 }

@@ -34,6 +34,7 @@ public class LoginController {
         Users currentUser = userLoginService.userLoginService(email);
 
         if (currentUser != null && password.equals(currentUser.getPassword())) {
+        	session.setAttribute("user", currentUser);
             session.setAttribute("emailsUser", email);
             session.setAttribute("userId", currentUser.getId());
             session.setAttribute("role", currentUser.getRole());

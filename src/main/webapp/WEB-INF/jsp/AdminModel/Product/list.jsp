@@ -144,7 +144,7 @@ prefix="c" %>
                 <td>${products.brand}</td>
                 <td>
                   <a
-                    href="listSearchCategory?id=${products.category.id}"
+                    href="/product-update/${products.id}"
                     class="text-primary me-3"
                   >
                     <i class="fa-solid fa-pen-to-square"></i>

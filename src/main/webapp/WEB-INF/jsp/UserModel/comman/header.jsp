@@ -1,7 +1,3 @@
-
-
-
-
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -69,25 +65,32 @@
                         <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                             <ul class="navbar-nav  mb-5  mb-lg-0">
                                 <li class="nav-item">
-                                    <a class="ms-4 nav-link active" aria-current="page" href="index">Home</a>
+                                    <a class="ms-4 nav-link active" aria-current="page" href="/index">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="ms-4 nav-link active" aria-current="page" href="shop">Shop</a>
+                                    <a class="ms-4 nav-link active" aria-current="page" href="/shop">Shop</a>
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="ms-4 nav-link active" aria-current="page" href="blog">Blog</a>
+                                    <a class="ms-4 nav-link active" aria-current="page" href="/blog">Blog</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="ms-4 nav-link active" aria-current="page" href="contact">Contact</a>
+                                    <a class="ms-4 nav-link active" aria-current="page" href="/contact">Contact</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="ms-4 nav-link active" aria-current="page" href="aboutUs">About Us</a>
+                                    <a class="ms-4 nav-link active" aria-current="page" href="/aboutUs">About Us</a>
                                 </li>
 
                             </ul>
                         </div>
+                        <div class="addToCart p-4">
+
+                            <a class="ms-4 nav-link active" aria-current="page" href="/addToCart"> <i
+                                    class="fa-solid fa-cart-shopping"></i></a>
+
+                        </div>
                         <div class="justify-content-end">
+
                             <ul class="navbar-nav">
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle ms-2" href="#" id="userDropdown" role="button"
@@ -97,11 +100,11 @@
                                             style="width: 50px; height: 50px; border-radius: 50%;">
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                                        <li><a class="dropdown-item" href="UserProfile">Profile</a></li>
+                                        <li><a class="dropdown-item" href="/UserProfile">Profile</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item" href="logout">Logout</a></li>
+                                        <li><a class="dropdown-item" href="/">Logout</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -278,16 +281,3 @@
         crossorigin="anonymous"></script> -->
 
         </html>
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -3,12 +3,14 @@ package com.nt.entity;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,53 +18,45 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Setter
+@Table(name = "product")
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Product {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
-	private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-	private String name;
+    @Column(length = 255)
+    private String name;
 
-	private String brand;
+    @Column(length = 100)
+    private String brand;
 
-	private String description;
+    @Column(length = 500)
+    private String description;
 
-	private String price;
+    private double price;
+    private double discount;
+    private int stock;
 
-	private String discount;
+    private String unitType;
+    private int unitNum;
+    private String status;
 
-	private String stock;
+    @Column(name = "image_url", length = 255)
+    private String imageUrl;
 
-	private String unitType;
+    private LocalDate createdDate;
+    private LocalTime createdTime;
 
-	private int unitNum;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
-	private String status;
-
-	private String imageUrl;
-
-	private LocalDate createdDate;
-
-	private LocalTime createdTime;
-
-//	private int categoryId;
-	
-	
-	@ManyToOne
-	@JoinColumn(name = "category_id")
-	private Category category;
-	
-	
-	@ManyToOne
-	@JoinColumn(name = "user_id")
-	private Users user;
-
-	
-
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private Users user;
 }
