@@ -1,0 +1,92 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Custom Teal Theme */
+.text-teal { color: #008080 !important; }
+.btn-teal {
+  background-color: #008080;
+  color: white;
+  border: none;
+}
+.btn-teal:hover {
+  background-color: #006666;
+}
+
+/* Carousel Caption Background */
+.bg-opacity {
+  background-color: rgba(0, 0, 0, 0.55);
+  color: white;
+}
+
+/* Footer */
+/* Footer Base */
+.footer {
+  background-color: #87ceeb; /* Sky blue theme */
+  color: #fff;
+  padding: 40px 0 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Footer Container */
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+  gap: 20px;
+}
+
+/* Each Column */
+.footer-col {
+  flex: 1;
+  min-width: 250px;
+  padding: 10px;
+}
+
+/* Logo */
+.footer-col .logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+/* Links */
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 8px;
+}
+
+.footer-col ul li a {
+  color: #f0f8ff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: #1c75bc; /* darker blue hover */
+}
+
+/* Bottom Bar */
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  border-top: 1px solid #b0e0e6;
+  padding-top: 10px;
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
